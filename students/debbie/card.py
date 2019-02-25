@@ -11,7 +11,7 @@ class Card():
     values = {str(num): num for num in range(2, 11)}
     values.update({'J': 10, 'Q': 10, 'K': 10}) # A is a special case
 
-    def __init__(self, rank, suit):
+    def __init__(self, rank: str, suit: str):
         self.rank = rank
         self.suit = suit
 

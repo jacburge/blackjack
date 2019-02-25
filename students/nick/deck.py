@@ -12,8 +12,6 @@ from card import Card
 class Deck():
     """
     A deck of cards
-    Initialize the deck
-
     """
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
     suits = ['clubs', 'diamonds', 'hearts', 'spades']
@@ -36,4 +34,5 @@ class Deck():
 
     def deal(self) -> Card:
         """ Return a single Card from the top of the deck """
-        return self._cards[0]
+        """ Bug #2253: Use .pop() instead of 'peek' (_cards[0]) """
+        return self._cards.pop()

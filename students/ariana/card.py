@@ -21,8 +21,8 @@ class Card():
     def __str__(self):
         return '{rank} of {suit}'.format(rank=self.rank, suit=self.suit.title())
 
-    def __eq__(self, other):
-        return self.value() == other.value()
+    # def __eq__(self, other):
+    #     return self.value() == other.value()
 
     def value(self: object) -> int:
         """ Return the point value of a card """

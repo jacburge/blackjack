@@ -7,6 +7,9 @@ from player import Player
 import game
 from card import Card
 
+from collections import Counter
+import random
+
 class TestGame(unittest.TestCase):
 
     def test_deal_cards(self):
@@ -16,6 +19,25 @@ class TestGame(unittest.TestCase):
         num_cards = 2
         game.deal_cards(test_deck, test_player, num_cards)
         self.assertEqual(num_cards, len(test_player.visible_cards()))
+
+    def test_dealt_cards_are_different(self):
+        num_cards = 10
+        test_deck = Deck()
+        test_deck.shuffle()
+        dealt_cards = set([test_deck.deal() for _ in range(num_cards)])
+        self.assertEqual(num_cards, len(dealt_cards))
+
+    def test_dealt_cards_from_multiple_decks_are_varied(self):
+        num_cards = 52
+        num_decks = 2
+        test_decks = []
+        for _ in range(num_decks):
+            d = Deck()
+            d.shuffle
+            test_decks.append(d)
+        dealt_cards = [random.choice(test_decks).deal() for _ in range(num_cards)]
+        c = Counter(dealt_cards)
+        self.assertLessEqual(c.most_common(1)[0][1], num_decks)
 
     def test_basic_score_determination(self):
         test_deck = Deck()
