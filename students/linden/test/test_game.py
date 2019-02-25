@@ -9,7 +9,7 @@ from player import Player
 sys.path.insert(0, '..')
 
 
-class TestPlayer(unittest.TestCase):
+class TestGame(unittest.TestCase):
 
     def test_deal_cards(self):
         test_deck = Deck()
