@@ -7,7 +7,7 @@ import player
 from card import Card
 
 class TestPlayer(unittest.TestCase):
-
+    #TODO take out a lot of commented code that was redundant due to setUp
     #setUp is made to be over ridden
     def setUp(self):
         self.bob = player.Player('Bob')
