@@ -8,11 +8,13 @@ import deck # pylint: disable=wrong-import-position
 
 class TestDeck(unittest.TestCase):
 
+    def setUp(self):
+        self.deck = deck.Deck()
+
     def test_number_of_cards_in_init(self):
         """ test that the number of cards in a single-deck init is
         sensible """
-        test_deck = deck.Deck()
-        self.assertEqual(52, len(test_deck))
+        self.assertEqual(52, len(self.deck))
 
     def test_multiple_decks(self):
         """ test that the number of cards in a multiple-deck init is
@@ -26,17 +28,15 @@ class TestDeck(unittest.TestCase):
         fail even with perfectly valid code, if somehow the shuffle()
         function returns the list in the same order.  run the test again
         if this test fails once."""
-        test_deck = deck.Deck()
-        first_ten = test_deck[:10]
-        test_deck.shuffle()
-        shuffled_ten = test_deck[:10]
+        first_ten = self.deck[:10]
+        self.deck.shuffle()
+        shuffled_ten = self.deck[:10]
         self.assertNotEqual(first_ten, shuffled_ten)
 
     def test_dealt_cards_are_different(self):
-        test_deck = deck.Deck()
-        test_deck.shuffle()
-        card1 = test_deck.deal()
-        card2 = test_deck.deal()
+        self.deck.shuffle()
+        card1 = self.deck.deal()
+        card2 = self.deck.deal()
         self.assertNotEqual((card1.rank, card1.suit),
                             (card2.rank, card2.suit))
 
