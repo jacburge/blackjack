@@ -40,6 +40,5 @@ class TestDeck(unittest.TestCase):
         card2 = test_deck.deal()
         self.assertNotEqual((card1.rank, card1.suit), (card2.rank, card2.suit))
 
-        
 if __name__ == '__main__':
     unittest.main()

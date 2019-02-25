@@ -144,7 +144,7 @@ def play_game() -> None:
     Start the game.  This is the main event loop.
     """
     say(None, 'Welcome to Blackjack!')
-    deck: Deck = Deck() # start with a single deck
+    deck: Deck = Deck()  # start with a single deck
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
