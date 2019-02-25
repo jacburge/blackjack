@@ -34,4 +34,6 @@ class Deck():
 
     def deal(self) -> Card:
         """ Return a single Card from the top of the deck """
-        return self._cards[0]
+        #return self._cards[0] #returns single not removed from deck
+        return self._cards.pop() #gives card and removes from deck
+        
