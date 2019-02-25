@@ -9,7 +9,7 @@ class Card():
     """ A simple class representing a single playing card; barely
     qualifies to be a class on its own """
     values = {str(num): num for num in range(2, 11)}
-    values.update({'J': 10, 'Q': 10, 'K': 10}) # A is a special case
+    values.update({'J': 10, 'Q': 10, 'K': 10})  # A is a special case
 
     def __init__(self, rank, suit):
         self.rank = rank
