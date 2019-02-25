@@ -7,7 +7,9 @@ to a standard 52-card deck.
 
 import collections
 import random
+
 from card import Card
+
 
 class Deck():
     """
@@ -16,11 +18,23 @@ class Deck():
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
     suits = ['clubs', 'diamonds', 'hearts', 'spades']
 
-    def __init__(self, number: int=1):
+    def __init__(self, number: int = 1):
+        '''
+        initialize the deck
+
+        Args:
+            number is the number of 52-card decks to create. Vegas uses a shoe with 6 decks to make it
+                harder for card counters.
+
+        Returns:
+            Deck object
+        '''
+        # would have been better to make one then multiple by the number of decks you need
+        # instead of the outer range(number) loop.
         self._cards = [Card(rank, suit)
                        for rank in self.ranks
                        for suit in self.suits
-                       for num in range(number)]
+                       for _ in range(number)]
 
     def __len__(self) -> int:
         return len(self._cards)
@@ -34,4 +48,4 @@ class Deck():
 
     def deal(self) -> Card:
         """ Return a single Card from the top of the deck """
-        return self._cards[0]
+        return self._cards.pop()

@@ -16,12 +16,13 @@ class Deck():
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
     suits = ['clubs', 'diamonds', 'hearts', 'spades']
 
+
     def __init__(self, number: int=1):
-        """ 
+        """
         Initialize the deck
 
-        Args:   
-            number: the number of 52-deck cards to create
+        Args:
+            number: the number of 52-card decks to create
 
         Returns:
             Deck object
@@ -29,7 +30,6 @@ class Deck():
         self._cards = [Card(rank, suit)
                        for rank in self.ranks
                        for suit in self.suits]
-                       #for _ in range(number)]
         self._cards *= number
 
     def __len__(self) -> int:

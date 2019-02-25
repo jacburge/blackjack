@@ -1,10 +1,10 @@
+import deck
 """ run tests on Deck functionality """
 
 import unittest
 import sys
 sys.path.insert(0, '..')
 
-import deck # pylint: disable=wrong-import-position
 
 class TestDeck(unittest.TestCase):
 
@@ -31,6 +31,25 @@ class TestDeck(unittest.TestCase):
         test_deck.shuffle()
         shuffled_ten = test_deck[:10]
         self.assertNotEqual(first_ten, shuffled_ten)
+
+    # def test_dealt_cards_are_different_one_deck(self):
+    #     ''' Only supports single deck testing of the deal function. '''
+    #     test_deck = deck.Deck()
+    #     dealt_cards = [test_deck.deal() for _ in range(10)]
+    #     # dealt_cards=[]  # done is list comprehension above
+    #     # for _ in range(10):
+    #     #     dealt_cards.append(test_deck.deal())
+    #     set_cards = set(dealt_cards)  # remove duplicate entries
+    #     # if we have a list of identical cards, the length of the set would be 1
+    #     self.assertEqual(len(dealt_cards), len(set_cards),
+    #                      "Returns duplicates and shouldn't")
+
+    def test_dealt_cards_are_different(self):
+        test_deck = deck.Deck()
+        test_deck.shuffle()
+        card1 = test_deck.deal()
+        card2 = test_deck.deal()
+        self.assertNotEqual((card1.rank, card1.suit), (card2.rank, card2.suit))
 
 
 if __name__ == '__main__':

@@ -12,6 +12,8 @@ from card import Card
 class Deck():
     """
     A deck of cards
+    Initialize the deck
+
     """
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
     suits = ['clubs', 'diamonds', 'hearts', 'spades']
