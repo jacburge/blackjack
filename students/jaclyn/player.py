@@ -42,6 +42,8 @@ class Player():
         """ Return a list of all the player's cards, whether visible or
         not. """
         cards = []
+        # extend: add each element of list to original list
+        # append: add object as one item to original list
         cards.extend(self._faceup_cards)
         if self._facedown_card:
             cards.append(self._facedown_card)
