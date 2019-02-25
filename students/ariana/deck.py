@@ -17,28 +17,15 @@ class Deck():
     suits = ['clubs', 'diamonds', 'hearts', 'spades']
 
     def __init__(self, number: int=1):
-        """
-        Initialize the deck
-
-        Args:
-            number: the number of 52-card decks to create
-
-        Returns:
-            deck object
-        """
         self._cards = [Card(rank, suit)
                        for rank in self.ranks
                        for suit in self.suits
-                       for _ in range(number)] # _ value isn't used, just a counter
-        # could also not use the 3rd loop and use this instead:
-        # self._cards *= number
+                       for num in range(number)]
 
     def __len__(self) -> int:
-        """ Returns length of deck """
         return len(self._cards)
 
     def __getitem__(self, index: int) -> Card:
-        """ Acts like a list """
         return self._cards[index]
 
     def shuffle(self) -> None:
@@ -47,4 +34,4 @@ class Deck():
 
     def deal(self) -> Card:
         """ Return a single Card from the top of the deck """
-        return self._cards.pop()
+        return self._cards[0]

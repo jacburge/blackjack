@@ -44,7 +44,7 @@ def get_players() -> list:
         say(None, 'Please enter your name: ')
         name = get_input()
         players.append(Player(name))
-        say(players[-1], 'Are there more players to sign up? (y/N)') #default no
+        say(players[-1], 'Are there more players to sign up? (y/N)')
         response = get_input()
         if not response:
             keep_going = 'n'
