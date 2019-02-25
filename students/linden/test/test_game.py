@@ -1,11 +1,13 @@
 import sys
-sys.path.insert(0, '..')
-
 import unittest
-from deck import Deck
-from player import Player
+
 import game
 from card import Card
+from deck import Deck
+from player import Player
+
+sys.path.insert(0, '..')
+
 
 class TestPlayer(unittest.TestCase):
 

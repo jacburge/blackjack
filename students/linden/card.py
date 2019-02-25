@@ -5,6 +5,7 @@ card can be aware of its own point value, and have a high-quality str()
 representation.
 """
 
+
 class Card():
     """ A simple class representing a single playing card; barely
     qualifies to be a class on its own """

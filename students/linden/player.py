@@ -5,6 +5,7 @@ of its own state.
 
 from card import Card
 
+
 class Player():
     """ The person playing the game. """
 
@@ -20,7 +21,7 @@ class Player():
         tallied.  If facedown is set to True, all cards (even hidden
         cards) will be counted. """
         points = 0
-        for card in self._faceup_cards:
+        for card in self._faceup_cards:  # TODO use sum instead of loops
             points += card.value()
         if include_facedown:
             points += self._facedown_card.value()

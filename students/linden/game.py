@@ -13,6 +13,7 @@ https://www.bicyclecards.com/how-to-play/blackjack/
 from deck import Deck
 from player import Player
 
+
 def say(player: Player, text: str) -> None:
     """
     Say something.  As long as we're in console-land, this is just a
@@ -30,7 +31,7 @@ def get_input() -> str:
     Retrieve input from the user.  Like say(), this is present mostly
     for future expansion capability.
     """
-    return input()
+    return input()   # stops cursor and waits for terminal input
 
 
 def get_players() -> list:
