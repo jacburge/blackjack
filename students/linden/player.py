@@ -6,7 +6,7 @@ of its own state.
 from card import Card
 
 class Player():
-    """ This needs to be updated """
+    """ The person playing the game. """
 
     def __init__(self, name: str, is_dealer: bool = False):
         self.name = name
