@@ -7,7 +7,7 @@ from player import Player
 import game
 from card import Card
 
-class TestPlayer(unittest.TestCase):
+class TestGame(unittest.TestCase):
 
     def test_deal_cards(self):
         test_deck = Deck()

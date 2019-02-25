@@ -25,3 +25,11 @@ Topic: troubleshooting; good bug-fix technique
    C. Check in the code with a commit message that references the bug
       number, a brief description of the bug, and what you did to fix it
    D. run pylint
+
+
+Topic: Test cleanup
+*. The test for the game.py file, test/test_game.py, contains a lot of
+   redundant code.  Replace all the repeated code with a setUp()
+   function at the top of the test class. Make sure you can run the tests, and
+   they all pass, before changing anything.
+   run pylint
