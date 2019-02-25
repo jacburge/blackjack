@@ -36,6 +36,6 @@ class TestDeck(unittest.TestCase):
         test_deck = deck.Deck()
         card1 = test_deck.deal()
         card2 = test_deck.deal()
-        self.assertNotAlmostEqual((card1.rank,card1.suit),(card2.rank,card2.suit))
+        self.assertNotEqual((card1.rank,card1.suit),(card2.rank,card2.suit))
 if __name__ == '__main__':
     unittest.main()
