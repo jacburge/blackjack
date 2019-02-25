@@ -32,6 +32,16 @@ class TestDeck(unittest.TestCase):
         shuffled_ten = test_deck[:10]
         self.assertNotEqual(first_ten, shuffled_ten)
 
+    def test_dealt_cards_are_different(self):
+        test_deck = deck.Deck()
+        test_deck.shuffle()
+        card1 = test_deck.deal()
+        card2 = test_deck.deal()
+        self.assertNotEqual((card1.rank, card1.suit),
+                            (card2.rank, card2.suit))
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
