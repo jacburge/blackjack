@@ -13,7 +13,6 @@ https://www.bicyclecards.com/how-to-play/blackjack/
 from deck import Deck
 from player import Player
 
-
 def say(player: Player, text: str) -> None:
     """
     Say something.  As long as we're in console-land, this is just a
@@ -31,7 +30,7 @@ def get_input() -> str:
     Retrieve input from the user.  Like say(), this is present mostly
     for future expansion capability.
     """
-    return input()   # stops cursor and waits for terminal input
+    return input()
 
 
 def get_players() -> list:
@@ -145,7 +144,7 @@ def play_game() -> None:
     Start the game.  This is the main event loop.
     """
     say(None, 'Welcome to Blackjack!')
-    deck: Deck = Deck()  # start with a single deck
+    deck: Deck = Deck() # start with a single deck
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
