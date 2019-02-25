@@ -1,0 +1,27 @@
+# vi:set wm=9 ai:
+
+This page desecribes the rules we're using for this game.  Refer to it
+as necessary to complete certain exercises:
+
+https://www.bicyclecards.com/how-to-play/blackjack/
+
+Topic: troubleshooting; good bug-fix technique
+*. A black-box QA tester has submitted a bug report against your
+   Blackjack game.  It reads as follows:
+
+   "Bug #2253: Cards dealt are not unique"
+   Steps to reproduce:
+   1 run 'python3 game.py'
+   2 select a username, press enter twice
+   3 hit or stay
+   4 Both cards are identical
+   - program should give two different cards
+
+   As the developer on this code, fix the problem by performing the
+   following steps in order (all steps are required).  Each number is a
+   separate exercise:
+   A. Write a test that demonstrates the bug *before* changing any code
+   B. Fix the code so that the new test passes
+   C. Check in the code with a commit message that references the bug
+      number, a brief description of the bug, and what you did to fix it
+   D. run pylint
