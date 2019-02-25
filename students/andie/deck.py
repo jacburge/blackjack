@@ -17,10 +17,20 @@ class Deck():
     suits = ['clubs', 'diamonds', 'hearts', 'spades']
 
     def __init__(self, number: int=1):
+        """ 
+        Initialize the deck
+
+        Args:   
+            number: the number of 52-deck cards to create
+
+        Returns:
+            Deck object
+        """
         self._cards = [Card(rank, suit)
                        for rank in self.ranks
-                       for suit in self.suits
-                       for num in range(number)]
+                       for suit in self.suits]
+                       #for _ in range(number)]
+        self._cards *= number
 
     def __len__(self) -> int:
         return len(self._cards)
@@ -34,4 +44,4 @@ class Deck():
 
     def deal(self) -> Card:
         """ Return a single Card from the top of the deck """
-        return self._cards[0]
+        return self._cards.pop()
