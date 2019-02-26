@@ -44,10 +44,16 @@ def say(player: Player, text: str) -> None:
     print() statement, but if we decide to move to Slack or irc, it
     gives us a little leg-up.
     """
+    # note that `player` can be either None or a Player.  remember that
+    # a None type doesn't have a .name attribute, so you'll need to
+    # handle the two strings differently.
+    msg = ''
     if player:
-        print('{}: {}'.format(player.name, text))
+        msg = '{}: {}'.format(player.name, text)
     else:
-        print(text)
+        msg = text
+    print(msg)
+    logger.debug(msg)
 
 
 def get_input() -> str:
@@ -125,14 +131,13 @@ def get_score(player: Player) -> int:
     return score
 
 
-def print_cards(player: Player) -> None:
+def get_cards(player: Player) -> None:
     """
     Print out the player's current hand.
     """
-    # TODO: the card format is not very nice, figure out why Card's
-    # __str__ method isn't getting called like expected
-    cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
+    cards = [str(card) for card in player.all_cards()]
+    cardlist = ', '.join(cards)
+    return 'Your hand: ' + cardlist
 
 
 def ask_player_position(deck: Deck, players: list) -> None:
@@ -143,14 +148,14 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
-        print_cards(player)
+        say(player, get_cards(player))
         while True:
             report_score(player)
             say(player, 'Would you like to hit or stay? (h/S) ')
             answer = get_input()
             if answer.lower() in ['h', 'hit']:
                 deal_cards(deck, player, 1)
-                print_cards(player)
+                say(player, get_cards(player))
                 if get_score(player) >= 21:
                     break
             else:

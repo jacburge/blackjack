@@ -39,10 +39,17 @@ def say(player: Player, text: str) -> None:
     print() statement, but if we decide to move to Slack or irc, it
     gives us a little leg-up.
     """
+    #note that 'player' can be either None or a Player. remmeber that a None type doesn't have a .name attribute, so you'll need to handle thae two strings differently
+    msg = ''
     if player:
-        print('{}: {}'.format(player.name, text))
+        #print('{}: {}'.format(player.name, text))
+        msg = '{}: {}'.format(player.name, text)
+        #logger.debug(player.name + ": " + text)
     else:
-        print(text)
+        msg = text
+        #print(text)
+    print(msg)
+    logger.debug(msg)
 
 
 def get_input() -> str:

@@ -45,10 +45,10 @@ def say(player: Player, text: str) -> None:
     """
     if player:
         print('{}: {}'.format(player.name, text))
-        logger.info('{}: {}'.format(player.name, text))
+        logger.debug('%s: %s', player.name, text)
     else:
         print(text)
-        logger.info(text)
+        logger.debug('%s', text)
 
 
 def get_input() -> str:
@@ -132,9 +132,12 @@ def print_cards(player: Player) -> None:
     """
     # TODO: the card format is not very nice, figure out why Card's
     # __str__ method isn't getting called like expected
+    card_values = []
     cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
-
+    for card in cards:
+        card_values.append(str(card))
+    card_reported_value = 'Your cards are: ' + ', '.join(card_values)
+    return card_reported_value
 
 def ask_player_position(deck: Deck, players: list) -> None:
     """
@@ -144,14 +147,14 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
-        print_cards(player)
+        say(player, print_cards(player))
         while True:
             report_score(player)
             say(player, 'Would you like to hit or stay? (h/S) ')
             answer = get_input()
             if answer.lower() in ['h', 'hit']:
                 deal_cards(deck, player, 1)
-                print_cards(player)
+                say(player, print_cards(player))
                 if get_score(player) >= 21:
                     break
             else:
