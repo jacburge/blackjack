@@ -4,6 +4,7 @@ card.  It exists (rather than just using a named tuple) so that the
 card can be aware of its own point value, and have a high-quality str()
 representation.
 """
+# pylint: disable=fixme
 
 class Card():
     """ A simple class representing a single playing card; barely

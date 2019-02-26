@@ -3,6 +3,8 @@ This module contains a basic Player class so each player can keep track
 of its own state.
 """
 
+from typing import List
+
 from card import Card
 
 
@@ -12,7 +14,7 @@ class Player():
     def __init__(self, name: str, is_dealer: bool = False):
         self.name = name
         self.is_dealer = is_dealer
-        self._faceup_cards = []
+        self._faceup_cards: List = []
         self._facedown_card = None
 
     def points(self, include_facedown: bool = False) -> int:

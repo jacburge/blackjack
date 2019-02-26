@@ -10,11 +10,13 @@ Based on the rules at:
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
 
+from typing import Tuple
+
 from deck import Deck
 from player import Player
 
 
-def say(player: Player, text: str) -> None:
+def say(player, text: str) -> None:
     """
     Say something.  As long as we're in console-land, this is just a
     print() statement, but if we decide to move to Slack or irc, it
@@ -145,7 +147,7 @@ def play_game() -> None:
     Start the game.  This is the main event loop.
     """
     say(None, 'Welcome to Blackjack!')
-    deck: Deck = Deck()  # start with a single deck
+    deck = Deck()  # start with a single deck
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
