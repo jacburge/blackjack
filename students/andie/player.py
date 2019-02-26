@@ -5,6 +5,7 @@ of its own state.
 
 from card import Card
 
+
 class Player():
     """ This needs to be updated """
 
