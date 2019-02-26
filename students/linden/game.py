@@ -142,11 +142,11 @@ def format_cards(player: Player) -> str:
     str_list = []
     for card in player.all_cards():
         str_list.append(card.rank)
-        str_list.append('-')
+        str_list.append(' of ')
         str_list.append(card.suit)
-        str_list.append(' ')
-        str_list.append('{}'.format(card.value()))
-        str_list.append(", ")
+        str_list.append(', ')
+        # str_list.append('{}'.format(card.value()))
+        # str_list.append(", ")
 
     str_list = str_list[:-1]  # remove last 2 chars
     bill = ''.join(str_list)

@@ -21,7 +21,7 @@ class TestGame(unittest.TestCase):
         #10-diamonds 10, J-diamonds 10
         self.bob.add_card(Card('10', 'diamonds'))
         self.bob.add_card(Card('J', 'diamonds'))
-        self.assertEqual("10-diamonds 10, J-diamonds 10", game.format_cards(self.bob))
+        self.assertEqual("10 of diamonds, J of diamonds", game.format_cards(self.bob))
 
     def test_deal_cards(self):
         num_cards = 2
