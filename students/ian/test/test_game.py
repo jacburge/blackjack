@@ -56,6 +56,13 @@ class TestGame(unittest.TestCase):
         self.player.add_card(Card('A', 'clubs'))
         self.assertEqual(21, game.get_score(self.player))
 
+    def test_print_hand_prints_nicely(self):
+        self.player.add_card(Card('9', 'hearts'))
+        self.player.add_card(Card('4', 'diamonds'))
+        expected = 'Your hand: 9 of Hearts, 4 of Diamonds'
+        cardlist = game.get_cards(self.player)
+        self.assertEqual(expected, cardlist)
+
 
 if __name__ == '__main__':
     unittest.main()
