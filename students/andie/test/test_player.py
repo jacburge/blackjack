@@ -1,10 +1,10 @@
+from card import Card
+import player
+# import deck
+import unittest
 import sys
 sys.path.insert(0, '..')
 
-import unittest
-import deck
-import player
-from card import Card
 
 class TestPlayer(unittest.TestCase):
 
@@ -43,6 +43,7 @@ class TestPlayer(unittest.TestCase):
         self.dealer.add_card(visible_card)
         self.assertIn(hidden_card, self.dealer.all_cards())
         self.assertEqual(2, len(self.dealer.all_cards()))
+
 
 if __name__ == '__main__':
     unittest.main()
