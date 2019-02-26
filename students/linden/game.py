@@ -40,7 +40,7 @@ def setup_logging(config: dict):
     # else:
     #     level= logging.INFO
     # config= Config().data
-    logger.basicConfig(filename=config['logFile'], level=config['logLevel'],
+    logging.basicConfig(filename=config['logFile'], level=config['logLevel'],
                        format=config['logMessageFormat'])
 
 
