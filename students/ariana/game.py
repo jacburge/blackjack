@@ -12,6 +12,7 @@ https://www.bicyclecards.com/how-to-play/blackjack/
 
 from deck import Deck
 from player import Player
+# pylint: disable=fixme
 
 def say(player: Player, text: str) -> None:
     """
