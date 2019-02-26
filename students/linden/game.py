@@ -52,8 +52,11 @@ def say(player, text: str) -> None:
     """
     logger.debug
     if player:
-        print('{}: {}'.format(player.name, text))
+        localText='{}: {}'.format(player.name, text)
+        logger.debug(localText)
+        print(localText)
     else:
+        logger.debug(text)
         print(text)
 
 

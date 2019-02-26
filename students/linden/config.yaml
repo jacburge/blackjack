@@ -2,3 +2,7 @@
 logFile: blackjack.log
 logLevel: DEBUG
 logMessageFormat: "%(asctime)s %(levelname)s: %(message)s"
+
+test:
+  en:
+    sample_test: "sample text"
