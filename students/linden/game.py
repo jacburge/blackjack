@@ -41,7 +41,7 @@ def setup_logging(config: dict):
     #     level= logging.INFO
     # config= Config().data
     logging.basicConfig(filename=config['logFile'], level=config['logLevel'],
-                       format=config['logMessageFormat'])
+                        format=config['logMessageFormat'])
 
 
 def say(player, text: str) -> None:
@@ -52,7 +52,7 @@ def say(player, text: str) -> None:
     """
     logger.debug
     if player:
-        localText='{}: {}'.format(player.name, text)
+        localText = '{}: {}'.format(player.name, text)
         logger.debug(localText)
         print(localText)
     else:
