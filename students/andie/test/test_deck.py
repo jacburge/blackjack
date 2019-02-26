@@ -1,10 +1,10 @@
+import deck  # pylint: disable=wrong-import-position
 """ run tests on Deck functionality """
 
 import unittest
 import sys
 sys.path.insert(0, '..')
 
-import deck # pylint: disable=wrong-import-position
 
 class TestDeck(unittest.TestCase):
 
@@ -39,6 +39,7 @@ class TestDeck(unittest.TestCase):
         card1 = test_deck.deal()
         card2 = test_deck.deal()
         self.assertNotEqual((card1.rank, card1.suit), (card2.rank, card2.suit))
+
 
 if __name__ == '__main__':
     unittest.main()

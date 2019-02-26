@@ -45,8 +45,10 @@ def say(player: Player, text: str) -> None:
     """
     if player:
         print('{}: {}'.format(player.name, text))
+        logger.info('{}: {}'.format(player.name, text))
     else:
         print(text)
+        logger.info(text)
 
 
 def get_input() -> str:
