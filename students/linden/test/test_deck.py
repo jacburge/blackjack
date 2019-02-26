@@ -1,8 +1,10 @@
+import sys
+import unittest
+
 import deck
+
 """ run tests on Deck functionality """
 
-import unittest
-import sys
 sys.path.insert(0, '..')
 
 

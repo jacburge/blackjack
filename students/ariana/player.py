@@ -4,6 +4,7 @@ of its own state.
 """
 
 from card import Card
+# pylint: disable=fixme
 
 class Player():
     """ This needs to be updated """

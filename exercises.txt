@@ -26,10 +26,29 @@ Topic: troubleshooting; good bug-fix technique
       number, a brief description of the bug, and what you did to fix it
    D. run pylint
 
-
 Topic: Test cleanup
 *. The test for the game.py file, test/test_game.py, contains a lot of
    redundant code.  Replace all the repeated code with a setUp()
    function at the top of the test class. Make sure you can run the tests, and
    they all pass, before changing anything.
+   run pylint
+
+Topic: logging
+*. Initialize a logger that logs to a file called "blackjack.log".  Add
+   a log entry every time the game says something to the users,
+   including who the game was addressing, and the text that was printed
+   out. These log messages should be DEBUG.
+   Add formatting so the time is displayed with the message
+   run all tests
+   run pylint
+
+Topic: improving existing code; __str__() and __repr__()
+*. Clean up game:print_cards().  The function doesn't print a very nice
+   list of cards.  Modify it so that the list of cards returned is
+   nicely formatted. You may need to modify the function, or you may
+   need to modify the Card object.  Write a test to ensure that the
+   output is what you expected -- you'll probably want to modify the
+   function to return data rather than having the say() call inside the
+   report_score() function, for easier testing.
+   run all tests
    run pylint
