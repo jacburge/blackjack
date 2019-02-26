@@ -57,6 +57,12 @@ class TestGame(unittest.TestCase):
         self.bob.add_card(Card('A', 'clubs'))
         self.assertEqual(21, game.get_score(self.bob))
 
+    def test_print_cards_format(self):
+        self.bob.add_card(Card('9', 'hearts'))
+        self.bob.add_card(Card('A', 'clubs'))
+        expected_cards = 'Your cards are: 9 of Hearts, A of Clubs'
+        self.assertEqual(game.print_cards(self.bob), expected_cards)
+
 
 if __name__ == '__main__':
     unittest.main()
