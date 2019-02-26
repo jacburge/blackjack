@@ -50,6 +50,7 @@ def say(player, text: str) -> None:
     print() statement, but if we decide to move to Slack or irc, it
     gives us a little leg-up.
     """
+    logger.debug
     if player:
         print('{}: {}'.format(player.name, text))
     else:
