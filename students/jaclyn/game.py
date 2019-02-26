@@ -39,11 +39,17 @@ def say(player: Player, text: str) -> None:
     Say something.  As long as we're in console-land, this is just a
     print() statement, but if we decide to move to Slack or irc, it
     gives us a little leg-up.
+
+    Note that 'player' can either be None or a Player. Remember that
+    a None type doesn't have a .name attribute, so you'll need to
+    handle the two strings differently
     """
     if player:
-        print('{}: {}'.format(player.name, text))
+        msg = '{}: {}'.format(player.name, text)
     else:
-        print(text)
+        msg = text
+    print(msg)
+    logger.debug(msg)
 
 def get_input() -> str:
     """
@@ -122,7 +128,9 @@ def print_cards(player: Player) -> None:
     # TODO: the card format is not very nice, figure out why Card's
     # __str__ method isn't getting called like expected
     cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
+    clean_cards = [str(card) for card in cards]
+    say(player, 'Your hand: {}'.format(clean_cards))
+    return '{}: Your hand: {}'.format(player.name, clean_cards)
 
 def ask_player_position(deck: Deck, players: list) -> None:
     """
