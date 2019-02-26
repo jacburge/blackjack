@@ -104,6 +104,7 @@ def print_cards(player: Player) -> None:
     """
     Print out the player's current hand.
     """
+    # pylint: disable=fixme
     # TODO: the card format is not very nice, figure out why Card's
     # __str__ method isn't getting called like expected
     cards = player.all_cards()
@@ -131,6 +132,7 @@ def ask_player_position(deck: Deck, players: list) -> None:
             else:
                 break
         score = report_score(player)
+        # pylint: disable=fixme
         # TODO: this takes no account of the dealer's cards, add code
         # to check the dealer's hand
         if score == 21:
@@ -150,6 +152,7 @@ def play_game() -> None:
     dealer: Player = Player('Dealer', is_dealer=True)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
+    # pylint: disable=fixme
     # TODO: missing features at this point:
     # * betting
     # * comparisons with the dealer's hand
