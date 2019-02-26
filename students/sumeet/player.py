@@ -40,17 +40,9 @@ class Player():
 
     def all_cards(self) -> list:
         """ Return a list of all the player's cards, whether visible or
-            not. """
+        not. """
         cards = []
         cards.extend(self._faceup_cards)
         if self._facedown_card:
             cards.append(self._facedown_card)
         return cards
-
-    def all_cards_printable(self, separator: str = ', ') -> str:
-        """ Return a prettified list of all the player's cards, for use in
-            logging"""
-        cards = [str(card) for card in self._faceup_cards]
-        if self._facedown_card:
-            cards.append(str(self._facedown_card))
-        return separator.join(cards)

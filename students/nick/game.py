@@ -43,10 +43,9 @@ def say(player: Player, text: str) -> None:
     print() statement, but if we decide to move to Slack or irc, it
     gives us a little leg-up.
     """
-    if player:
-        print('{}: {}'.format(player.name, text))
-    else:
-        print(text)
+    log = '{}: {}'.format(player.name, text) if player else text
+    print(log)
+    LOG.debug(log)
 
 
 def get_input() -> str:
@@ -130,8 +129,7 @@ def print_cards(player: Player) -> None:
     """
     # TODO: the card format is not very nice, figure out why Card's
     # __str__ method isn't getting called like expected
-    cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
+    say(player, 'Your hand: {}'.format(player.all_cards_printable()))
 
 
 def ask_player_position(deck: Deck, players: list, dealer: Player) -> None:
@@ -171,7 +169,7 @@ def play_game() -> None:
     Start the game.  This is the main event loop.
     """
     setup_logging(read_config(_CONFIG_FILE))
-    say(None, 'Welcome to Blackjack!')
+    LOG.info("Welcome to Blackjack!")
     deck: Deck = Deck() # start with a single deck
     deck.shuffle()
     players: list = get_players()
