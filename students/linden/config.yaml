@@ -1,0 +1,4 @@
+# Logging configuration
+logFfile: blackjack.log
+logLevel: DEBUG
+logMessageFormat: "%(asctime)s %(levelname)s: %(message)s"

@@ -10,10 +10,38 @@ Based on the rules at:
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
 
+import logging
 from typing import Tuple
+
+import yaml
 
 from deck import Deck
 from player import Player
+
+CONFIG_FILE = 'config.yaml'  # TODO pull this in from the commandline
+
+# do this in __init__ so it runs at startup so it is available for all classes after we package it
+# creates a global variable logger with your filename
+logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
+
+
+def read_config(CONFIG_FILE: str) -> dict:
+    ''' Read in the configuration information from a config file. '''
+    # open as read-only with context manager that will close your file for you
+    with open(CONFIG_FILE, 'r') as cfg:
+        config_data = yaml.load(cfg.read())
+    return config_data
+
+
+def setup_logging(config: dict):
+    '''Set up the logging facility for our game. '''
+    # if len(sys.argv) > 1 and sys.argv[1 == -'d':
+    #     level= logging.DEBUG
+    # else:
+    #     level= logging.INFO
+    # config= Config().data
+    logger.basicConfig(filename=config['logFile'], level=config['logLevel'],
+                       format=config['logMessageFormat'])
 
 
 def say(player, text: str) -> None:
@@ -146,6 +174,14 @@ def play_game() -> None:
     """
     Start the game.  This is the main event loop.
     """
+    # signal.signal(
+    #         signal.SIGINT, signal_handler)  # in case someone hit Ctrl_c+or x. Good for DB connections to give them time to close clean, nice.
+    # signal.signal(signal.SIGITERM, signal_handler)
+
+    config = read_config(CONFIG_FILE)
+    setup_logging(config)
+    logger.info('Game starting...')
+
     say(None, 'Welcome to Blackjack!')
     deck = Deck()  # start with a single deck
     deck.shuffle()
