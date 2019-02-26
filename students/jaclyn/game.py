@@ -9,9 +9,30 @@ Based on the rules at:
 
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
-
+import logging
+import yaml
 from deck import Deck
 from player import Player
+
+# pylint: disable=fixme
+
+logger = logging.getLogger('blackjack') # pylint: disable=invalid-name
+CONFIG_FILE = 'config.yaml'
+
+def read_config(filename: str) -> dict:
+    """ Read in the configuration information from the config file. """
+    with open(filename, 'r') as fpth:
+        config_data = yaml.load(fpth.read())
+    return config_data
+
+def setup_logging(config: dict) -> None:
+    """ Set up the logging facility for our game. """
+    logfile = config['logfile']
+    loglevel = config['loglevel']
+    logformat = config['format']
+    logging.basicConfig(filename=logfile,
+                        level=loglevel,
+                        format=logformat)
 
 def say(player: Player, text: str) -> None:
     """
@@ -24,14 +45,12 @@ def say(player: Player, text: str) -> None:
     else:
         print(text)
 
-
 def get_input() -> str:
     """
     Retrieve input from the user.  Like say(), this is present mostly
     for future expansion capability.
     """
     return input()
-
 
 def get_players() -> list:
     """
@@ -52,7 +71,6 @@ def get_players() -> list:
             keep_going = response
     return players
 
-
 def deal_cards(deck: Deck, player: Player, num: int) -> None:
     """
     Deal the specified number of cards to the specified player, from
@@ -62,7 +80,6 @@ def deal_cards(deck: Deck, player: Player, num: int) -> None:
         card = deck.deal()
         player.add_card(card)
 
-
 def report_score(player: Player) -> int:
     """
     Tell the player what their current score is, and return that score
@@ -71,7 +88,6 @@ def report_score(player: Player) -> int:
     score = get_score(player)
     say(player, 'You have {} points'.format(score))
     return score
-
 
 def get_score(player: Player) -> int:
     """
@@ -99,7 +115,6 @@ def get_score(player: Player) -> int:
             return score
     return score
 
-
 def print_cards(player: Player) -> None:
     """
     Print out the player's current hand.
@@ -108,7 +123,6 @@ def print_cards(player: Player) -> None:
     # __str__ method isn't getting called like expected
     cards = player.all_cards()
     say(player, 'Your hand: {}'.format(cards))
-
 
 def ask_player_position(deck: Deck, players: list) -> None:
     """
@@ -138,11 +152,13 @@ def ask_player_position(deck: Deck, players: list) -> None:
         if score >= 21:
             say(player, 'Bust!  Too bad.')
 
-
 def play_game() -> None:
     """
     Start the game.  This is the main event loop.
     """
+    config = read_config(CONFIG_FILE)
+    setup_logging(config)
+    logger.info('Game starting')
     say(None, 'Welcome to Blackjack!')
     deck: Deck = Deck() # start with a single deck
     deck.shuffle()

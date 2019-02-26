@@ -5,7 +5,6 @@ and a built-in deal() method, as well as being able to initialize itself
 to a standard 52-card deck.
 """
 
-import collections
 import random
 from card import Card
 
