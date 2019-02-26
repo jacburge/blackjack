@@ -17,6 +17,12 @@ class TestGame(unittest.TestCase):
         self.test_deck = Deck()
         self.test_deck.shuffle()
 
+    def test_format_cards(self):
+        #10-diamonds 10, J-diamonds 10
+        self.bob.add_card(Card('10', 'diamonds'))
+        self.bob.add_card(Card('J', 'diamonds'))
+        self.assertEqual("10-diamonds 10, J-diamonds 10", game.format_cards(self.bob))
+
     def test_deal_cards(self):
         num_cards = 2
         game.deal_cards(self.test_deck, self.bob, num_cards)
