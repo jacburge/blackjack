@@ -4,3 +4,99 @@
 2019-02-26 10:24:54,760 INFO: Game starting
 2019-02-26 10:25:08,968 INFO: Game starting
 2019-02-26 10:29:33,261 INFO: Game starting
+2019-02-26 10:50:04,829 INFO: Game starting
+2019-02-26 10:54:00,965 INFO: Game starting
+2019-02-26 10:54:13,684 INFO: Game starting
+2019-02-26 10:54:13,684 INFO: The dealer said Welcome to Blackjack! to None
+2019-02-26 10:54:13,684 INFO: The dealer said Please enter your name:  to None
+2019-02-26 10:54:16,277 INFO: The dealer said Are there more players to sign up? (y/N) to <player.Player object at 0x0000000002965F28>
+2019-02-26 10:54:17,652 INFO: The dealer said Greetings! to <player.Player object at 0x0000000002965F28>
+2019-02-26 10:54:17,667 INFO: The dealer said Your hand: [Card("4", "hearts"), Card("6", "clubs")] to <player.Player object at 0x0000000002965F28>
+2019-02-26 10:54:17,667 INFO: The dealer said You have 10 points to <player.Player object at 0x0000000002965F28>
+2019-02-26 10:54:17,667 INFO: The dealer said Would you like to hit or stay? (h/S)  to <player.Player object at 0x0000000002965F28>
+2019-02-26 10:54:18,745 INFO: The dealer said You have 10 points to <player.Player object at 0x0000000002965F28>
+2019-02-26 10:54:56,727 INFO: Game starting
+2019-02-26 10:56:54,740 INFO: Game starting
+2019-02-26 11:00:09,828 INFO: Game starting
+2019-02-26 11:00:09,828 INFO: The dealer said Welcome to Blackjack! to NA
+2019-02-26 11:00:09,828 INFO: The dealer said Please enter your name:  to NA
+2019-02-26 11:00:11,452 INFO: The dealer said Are there more players to sign up? (y/N) to jac
+2019-02-26 11:00:12,641 INFO: The dealer said Greetings! to jac
+2019-02-26 11:00:12,657 INFO: The dealer said Your hand: [Card("5", "clubs"), Card("Q", "clubs")] to jac
+2019-02-26 11:00:12,657 INFO: The dealer said You have 15 points to jac
+2019-02-26 11:00:12,672 INFO: The dealer said Would you like to hit or stay? (h/S)  to jac
+2019-02-26 11:00:13,629 INFO: The dealer said Your hand: [Card("5", "clubs"), Card("Q", "clubs"), Card("10", "diamonds")] to jac
+2019-02-26 11:00:13,629 INFO: The dealer said You have 25 points to jac
+2019-02-26 11:00:13,645 INFO: The dealer said Bust!  Too bad. to jac
+2019-02-26 11:02:02,322 INFO: Game starting
+2019-02-26 11:02:02,322 DEBUG: The dealer said Welcome to Blackjack! to NA
+2019-02-26 11:02:02,322 DEBUG: The dealer said Please enter your name:  to NA
+2019-02-26 11:02:04,717 DEBUG: The dealer said Are there more players to sign up? (y/N) to Jac
+2019-02-26 11:02:06,378 DEBUG: The dealer said Greetings! to Jac
+2019-02-26 11:02:06,378 DEBUG: The dealer said Your hand: [Card("2", "diamonds"), Card("J", "diamonds")] to Jac
+2019-02-26 11:02:06,378 DEBUG: The dealer said You have 12 points to Jac
+2019-02-26 11:02:06,393 DEBUG: The dealer said Would you like to hit or stay? (h/S)  to Jac
+2019-02-26 11:02:08,302 DEBUG: The dealer said Your hand: [Card("2", "diamonds"), Card("J", "diamonds"), Card("10", "hearts")] to Jac
+2019-02-26 11:02:08,302 DEBUG: The dealer said You have 22 points to Jac
+2019-02-26 11:02:08,302 DEBUG: The dealer said Bust!  Too bad. to Jac
+2019-02-26 11:08:38,629 INFO: Game starting
+2019-02-26 11:08:38,629 DEBUG: %msg
+2019-02-26 11:08:38,629 DEBUG: %msg
+2019-02-26 11:08:41,042 DEBUG: %msg
+2019-02-26 11:08:42,145 DEBUG: %msg
+2019-02-26 11:08:42,160 DEBUG: %msg
+2019-02-26 11:08:42,160 DEBUG: %msg
+2019-02-26 11:08:42,160 DEBUG: %msg
+2019-02-26 11:08:42,943 DEBUG: %msg
+2019-02-26 11:08:42,943 DEBUG: %msg
+2019-02-26 11:08:42,943 DEBUG: %msg
+2019-02-26 11:08:43,816 DEBUG: %msg
+2019-02-26 11:08:43,816 DEBUG: %msg
+2019-02-26 11:08:43,816 DEBUG: %msg
+2019-02-26 11:09:06,349 INFO: Game starting
+2019-02-26 11:09:06,349 DEBUG: Welcome to Blackjack!
+2019-02-26 11:09:06,349 DEBUG: Please enter your name: 
+2019-02-26 11:09:08,489 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-26 11:09:09,601 DEBUG: Jack: Greetings!
+2019-02-26 11:09:09,601 DEBUG: Jack: Your hand: [Card("7", "diamonds"), Card("A", "hearts")]
+2019-02-26 11:09:09,601 DEBUG: Jack: You have 18 points
+2019-02-26 11:09:09,617 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-26 11:09:10,963 DEBUG: Jack: Your hand: [Card("7", "diamonds"), Card("A", "hearts"), Card("10", "diamonds")]
+2019-02-26 11:09:10,963 DEBUG: Jack: You have 18 points
+2019-02-26 11:09:10,979 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-26 11:09:15,161 DEBUG: Jack: Your hand: [Card("7", "diamonds"), Card("A", "hearts"), Card("10", "diamonds"), Card("10", "clubs")]
+2019-02-26 11:09:15,176 DEBUG: Jack: You have 28 points
+2019-02-26 11:09:15,176 DEBUG: Jack: Bust!  Too bad.
+2019-02-26 11:32:45,154 INFO: Game starting
+2019-02-26 11:32:45,160 DEBUG: Welcome to Blackjack!
+2019-02-26 11:32:45,163 DEBUG: Please enter your name: 
+2019-02-26 11:32:48,262 DEBUG: Jaclyn: Are there more players to sign up? (y/N)
+2019-02-26 11:32:49,330 DEBUG: Jaclyn: Greetings!
+2019-02-26 11:33:56,649 INFO: Game starting
+2019-02-26 11:33:56,649 DEBUG: Welcome to Blackjack!
+2019-02-26 11:33:56,649 DEBUG: Please enter your name: 
+2019-02-26 11:33:58,533 DEBUG: Jaclyn: Are there more players to sign up? (y/N)
+2019-02-26 11:33:59,522 DEBUG: Jaclyn: Greetings!
+2019-02-26 11:33:59,522 DEBUG: Jaclyn: You have 17 points
+2019-02-26 11:33:59,522 DEBUG: Jaclyn: Would you like to hit or stay? (h/S) 
+2019-02-26 11:34:05,019 DEBUG: Jaclyn: You have 24 points
+2019-02-26 11:34:05,035 DEBUG: Jaclyn: Bust!  Too bad.
+2019-02-26 11:34:57,789 INFO: Game starting
+2019-02-26 11:34:57,790 DEBUG: Welcome to Blackjack!
+2019-02-26 11:34:57,793 DEBUG: Please enter your name: 
+2019-02-26 11:35:00,234 DEBUG: Jaclyn: Are there more players to sign up? (y/N)
+2019-02-26 11:35:01,265 DEBUG: Jaclyn: Greetings!
+2019-02-26 11:35:01,265 DEBUG: Jaclyn: You have 14 points
+2019-02-26 11:35:01,265 DEBUG: Jaclyn: Would you like to hit or stay? (h/S) 
+2019-02-26 11:35:39,650 DEBUG: Jaclyn: You have 14 points
+2019-02-26 11:35:41,347 INFO: Game starting
+2019-02-26 11:35:41,347 DEBUG: Welcome to Blackjack!
+2019-02-26 11:35:41,347 DEBUG: Please enter your name: 
+2019-02-26 11:35:43,031 DEBUG: Jaclyn: Are there more players to sign up? (y/N)
+2019-02-26 11:35:43,952 DEBUG: Jaclyn: Greetings!
+2019-02-26 11:35:43,967 DEBUG: Jaclyn: Your hand: ['K of Spades', '8 of Clubs']
+2019-02-26 11:35:43,967 DEBUG: Jaclyn: You have 18 points
+2019-02-26 11:35:43,967 DEBUG: Jaclyn: Would you like to hit or stay? (h/S) 
+2019-02-26 11:42:30,020 DEBUG: Jaclyn: Your hand: ['K of Spades', '8 of Clubs', 'K of Hearts']
+2019-02-26 11:42:30,024 DEBUG: Jaclyn: You have 28 points
+2019-02-26 11:42:30,028 DEBUG: Jaclyn: Bust!  Too bad.
