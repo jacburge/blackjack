@@ -13,6 +13,7 @@ https://www.bicyclecards.com/how-to-play/blackjack/
 from deck import Deck
 from player import Player
 
+# pylint: disable=fixme
 def say(player: Player, text: str) -> None:
     """
     Say something.  As long as we're in console-land, this is just a
@@ -24,14 +25,12 @@ def say(player: Player, text: str) -> None:
     else:
         print(text)
 
-
 def get_input() -> str:
     """
     Retrieve input from the user.  Like say(), this is present mostly
     for future expansion capability.
     """
     return input()
-
 
 def get_players() -> list:
     """
@@ -52,7 +51,6 @@ def get_players() -> list:
             keep_going = response
     return players
 
-
 def deal_cards(deck: Deck, player: Player, num: int) -> None:
     """
     Deal the specified number of cards to the specified player, from
@@ -62,7 +60,6 @@ def deal_cards(deck: Deck, player: Player, num: int) -> None:
         card = deck.deal()
         player.add_card(card)
 
-
 def report_score(player: Player) -> int:
     """
     Tell the player what their current score is, and return that score
@@ -71,7 +68,6 @@ def report_score(player: Player) -> int:
     score = get_score(player)
     say(player, 'You have {} points'.format(score))
     return score
-
 
 def get_score(player: Player) -> int:
     """
@@ -99,7 +95,6 @@ def get_score(player: Player) -> int:
             return score
     return score
 
-
 def print_cards(player: Player) -> None:
     """
     Print out the player's current hand.
@@ -108,7 +103,6 @@ def print_cards(player: Player) -> None:
     # __str__ method isn't getting called like expected
     cards = player.all_cards()
     say(player, 'Your hand: {}'.format(cards))
-
 
 def ask_player_position(deck: Deck, players: list) -> None:
     """
@@ -137,7 +131,6 @@ def ask_player_position(deck: Deck, players: list) -> None:
             say(player, 'Blackjack!')
         if score >= 21:
             say(player, 'Bust!  Too bad.')
-
 
 def play_game() -> None:
     """
