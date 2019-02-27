@@ -70,7 +70,10 @@ Topic: @property decorator
 Topic: @property decorator
 *. In the Player class, the visible_cards() and all_cards() methods
    would also make sense as properties.  Use the @property decorator to
-   make these into properties.  Write tests to confirm that these are
-   working as expected.
+   make these into properties.  Run all tests with nose to see if
+   changing from a method to a property has broken anything.  Update
+   any code that doesn't work like it should.  If there are no tests
+   that cover visible_cards() and all_cards, write tests to confirm
+   that these are working as expected.
    run all tests
    run pylint
