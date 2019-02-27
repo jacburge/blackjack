@@ -12,13 +12,11 @@ class Deck():
     """
     A deck of cards
     """
-    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
-    suits = ['clubs', 'diamonds', 'hearts', 'spades']
 
     def __init__(self, number: int = 1):
         self._cards = [Card(rank, suit)
-                       for rank in self.ranks
-                       for suit in self.suits
+                       for rank in Card.ranks
+                       for suit in Card.suits
                        for num in range(number)]
 
     def __len__(self) -> int:

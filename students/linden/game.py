@@ -135,14 +135,23 @@ def get_score(player: Player) -> int:
     return score
 
 
-def print_cards(player: Player) -> None:
+def format_cards(player: Player) -> str:
     """
-    Print out the player's current hand.
+    Formats the player's current hand.
     """
-    # TODO: the card format is not very nice, figure out why Card's
-    # __str__ method isn't getting called like expected
-    cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
+    str_list = []
+    for card in player.all_cards():
+        str_list.append(card.rank)
+        str_list.append(' of ')
+        str_list.append(card.suit)
+        str_list.append(', ')
+        # str_list.append('{}'.format(card.value()))
+        # str_list.append(", ")
+
+    str_list = str_list[:-1]  # remove last 2 chars
+    bill = ''.join(str_list)
+    # print(bill)
+    return bill
 
 
 def ask_player_position(deck: Deck, players: list) -> None:
@@ -153,14 +162,14 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
-        print_cards(player)
+        say(player, format_cards(player))
         while True:
             report_score(player)
             say(player, 'Would you like to hit or stay? (h/S) ')
             answer = get_input()
             if answer.lower() in ['h', 'hit']:
                 deal_cards(deck, player, 1)
-                print_cards(player)
+                say(player, format_cards(player))
                 if get_score(player) >= 21:
                     break
             else:
