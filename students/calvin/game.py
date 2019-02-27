@@ -9,8 +9,10 @@ Based on the rules at:
 
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
-import yaml
 import logging
+from typing import Tuple
+
+import yaml
 from deck import Deck
 from player import Player
 
@@ -57,7 +59,7 @@ def get_input() -> str:
     Retrieve input from the user.  Like say(), this is present mostly
     for future expansion capability.
     """
-    return input()
+    return input()   # stops cursor and waits for terminal input
 
 
 def get_players() -> list:
@@ -110,7 +112,7 @@ def get_score(player: Player) -> int:
     """
     aces = 0
     score = 0
-    for card in player.all_cards():
+    for card in player.all_cards:
         value = card.value()
         if value == 1:
             aces += 1
@@ -127,15 +129,23 @@ def get_score(player: Player) -> int:
     return score
 
 
-def print_cards(player: Player) -> None:
+def format_cards(player: Player) -> str:
     """
-    Print out the player's current hand.
+    Formats the player's current hand.
     """
-    # pylint: disable=fixme
-    # TODO: the card format is not very nice, figure out why Card's
-    # __str__ method isn't getting called like expected
-    cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
+    str_list = []
+    for card in player.all_cards:
+        str_list.append(card.rank)
+        str_list.append(' of ')
+        str_list.append(card.suit)
+        str_list.append(', ')
+        # str_list.append('{}'.format(card.value()))
+        # str_list.append(", ")
+
+    str_list = str_list[:-1]  # remove last 2 chars
+    bill = ''.join(str_list)
+    # print(bill)
+    return bill
 
 
 def ask_player_position(deck: Deck, players: list) -> None:
@@ -146,14 +156,14 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
-        print_cards(player)
+        say(player, format_cards(player))
         while True:
             report_score(player)
             say(player, 'Would you like to hit or stay? (h/S) ')
             answer = get_input()
             if answer.lower() in ['h', 'hit']:
                 deal_cards(deck, player, 1)
-                print_cards(player)
+                say(player, format_cards(player))
                 if get_score(player) >= 21:
                     break
             else:
@@ -172,11 +182,16 @@ def play_game() -> None:
     """
     Start the game.  This is the main event loop.
     """
+    # signal.signal(
+    #         signal.SIGINT, signal_handler)  # in case someone hit Ctrl_c+or x. Good for DB connections to give them time to close clean, nice.
+    # signal.signal(signal.SIGITERM, signal_handler)
+
     config = read_config(CONFIG_FILE)
     setup_logging(config)
-    logger.info('Game starting')
+    logger.info('Game starting...')
+
     say(None, 'Welcome to Blackjack!')
-    deck: Deck = Deck() # start with a single deck
+    deck = Deck()  # start with a single deck
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
