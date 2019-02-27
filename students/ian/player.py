@@ -4,6 +4,7 @@ of its own state.
 """
 
 from card import Card
+import money
 
 class Player():
     """ This needs to be updated """
@@ -13,6 +14,7 @@ class Player():
         self.is_dealer = is_dealer
         self._faceup_cards = []
         self._facedown_card = None
+        self.wallet = money.Wallet()
 
     def add_card(self, card: Card) -> None:
         """ Add a card to the player's hand.  This will correctly hide
