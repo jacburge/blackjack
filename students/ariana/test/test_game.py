@@ -20,7 +20,7 @@ class TestGame(unittest.TestCase):
     def test_deal_cards(self):   
         num_cards = 2
         game.deal_cards(self.deck, self.bob, num_cards)
-        self.assertEqual(num_cards, len(self.bob.visible_cards()))
+        self.assertEqual(num_cards, len(self.bob.visible_cards))
 
     def test_basic_score_determination(self):
         self.bob.add_card(Card('5', 'hearts'))
