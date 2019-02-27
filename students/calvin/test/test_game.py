@@ -2,6 +2,7 @@ import sys
 sys.path.insert(0, '..')
 
 import unittest
+from unittest.mock import MagicMock, Mock
 from deck import Deck
 from player import Player
 import game
@@ -60,6 +61,13 @@ class TestPlayer(unittest.TestCase):
         self.bob.add_card(Card('A', 'clubs'))
         self.assertEqual(21, game.get_score(self.bob))
 
+    def test_get_bet_handles_letter(self):
+        good_input = '12'
+        bad_input = 'twelve'
+        game.say = MagicMock()
+        game.get_input = MagicMock(side_effect=[bad_input, good_input])
+        game.get_bet_amount(self.bob)
+        self.assertIn('twelve is not a number', str(game.say.mock_calls[-2]))
 
 if __name__ == '__main__':
     unittest.main()
