@@ -2,6 +2,8 @@ import sys
 sys.path.insert(0, '..')
 
 import unittest
+from unittest.mock import Mock, MagicMock
+import re
 from deck import Deck
 from player import Player
 import game
@@ -80,6 +82,21 @@ class TestGame(unittest.TestCase):
         self.p1.add_card(Card('A', 'clubs'))
         self.assertEqual(21, game.get_score(self.p1))
 
+    def test_get_bet_handles_good_input(self):
+        game.say = MagicMock()
+        good_input = '50'
+        game.get_input = MagicMock(return_value=good_input)
+        bet_amount = game.get_bet_amount(self.p1)
+        self.assertEqual(50, bet_amount)
+    
+    def test_get_bet_handles_bad_input(self):
+        good_input = '50'
+        bad_input = 'FINLAND'
+        game.say = MagicMock()
+        game.get_input = Mock(side_effect=[bad_input, good_input])
+        game.get_bet_amount(self.p1)
+        expected = f'{bad_input} is not a number'
+        self.assertIn(expected, str(game.say.mock_calls[-2]))
 
 if __name__ == '__main__':
     unittest.main()

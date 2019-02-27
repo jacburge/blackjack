@@ -69,7 +69,8 @@ def get_players() -> list:
     while keep_going.lower() not in ['n', 'no']:
         say(None, 'Please enter your name: ')
         name = get_input()
-        players.append(Player(name))
+        players.append(initialize_player(name))
+        #players.append(Player(name))
         say(players[-1], 'Are there more players to sign up? (y/N)')
         response = get_input()
         if not response:
@@ -78,6 +79,16 @@ def get_players() -> list:
             keep_going = response
     return players
 
+
+def initialize_player(name:str, money: float = 10) -> Player:
+    """
+    Set up the player with a Player object and an initial amount of money
+    :param name:
+    :return:
+    """
+    player = Player(name)
+    player.wallet.add_money(money)
+    return player
 
 def deal_cards(deck: Deck, player: Player, num: int) -> None:
     """
@@ -139,6 +150,16 @@ def print_cards(player: Player) -> None:
     card_reported_value = 'Your cards are: ' + ', '.join(card_values)
     return card_reported_value
 
+def get_bet_amount(player: Player) -> float:
+    while True:
+        say(player, f'You have ${player.wallet.balance}, what is your bet?')
+        bet_amount = get_input()
+        try:
+            bet_amount = float(bet_amount)
+            return bet_amount
+        except ValueError:
+            say(player, f'{bet_amount} is not a number')
+
 def ask_player_position(deck: Deck, players: list) -> None:
     """
     Go through the list of players, and for each of them, ask if they
@@ -147,6 +168,8 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
+        bet_amount = get_bet_amount(player)
+        player.wallet.remove_money(float(bet_amount))
         say(player, print_cards(player))
         while True:
             report_score(player)
@@ -180,6 +203,7 @@ def play_game() -> None:
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
+    dealer.wallet.add_money(1000)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
     # TODO: missing features at this point:
