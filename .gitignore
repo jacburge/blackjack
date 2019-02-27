@@ -6,5 +6,6 @@ __pycache__
 creds.yaml
 students/linden/blackjack.log
 .gitignore
+blackjack.log
 
 .mypy_cache/
