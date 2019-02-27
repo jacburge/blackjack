@@ -15,7 +15,7 @@ from typing import Tuple
 
 import yaml
 
-from common.timeit import timeit
+from common.timeit import timeit_to_log
 from deck import Deck
 from player import Player
 
@@ -119,7 +119,7 @@ def get_score(player: Player) -> int:
     """
     aces = 0
     score = 0
-    for card in player.all_cards():
+    for card in player.all_cards:
         value = card.value()
         if value == 1:
             aces += 1
@@ -141,7 +141,7 @@ def format_cards(player: Player) -> str:
     Formats the player's current hand.
     """
     str_list = []
-    for card in player.all_cards():
+    for card in player.all_cards:
         str_list.append(card.rank)
         str_list.append(' of ')
         str_list.append(card.suit)
@@ -183,7 +183,7 @@ def ask_player_position(deck: Deck, players: list) -> None:
         if score >= 21:
             say(player, 'Bust!  Too bad.')
 
-@timeit
+@timeit_to_log
 def play_game() -> None:
     """
     Start the game.  This is the main event loop.
@@ -203,6 +203,9 @@ def play_game() -> None:
     dealer: Player = Player('Dealer', is_dealer=True)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
+    for player in players:
+        print("Print player.points to get exception: "+str(player.points))
+
     # TODO: missing features at this point:
     # * betting
     # * comparisons with the dealer's hand

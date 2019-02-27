@@ -17,6 +17,7 @@ class Player():
         self._faceup_cards: List = []
         self._facedown_card = None
 
+    @property
     def points(self, include_facedown: bool = False) -> int:
         """ Return the number of points in the player's hand.  If the
         facedown option is not specified, only the faceup cards will be
@@ -26,7 +27,7 @@ class Player():
         for card in self._faceup_cards:  # TODO use sum instead of loops
             points += card.value()
         if include_facedown:
-            points += self._facedown_card.value()
+            points += self._facedown_card.value()  # TOFIX write a test for when player is a dealer (facedown card can be None and it doesn't have a value). Re-enable mypy when done
         return points
 
     def add_card(self, card: Card) -> None:
@@ -37,10 +38,12 @@ class Player():
         else:
             self._faceup_cards.append(card)
 
+    @property
     def visible_cards(self) -> list:
         """ Return a list of the player's visible cards """
         return self._faceup_cards
 
+    @property
     def all_cards(self) -> list:
         """ Return a list of all the player's cards, whether visible or
         not. """
