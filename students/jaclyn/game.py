@@ -68,7 +68,7 @@ def get_players() -> list:
     while keep_going.lower() not in ['n', 'no']:
         say(None, 'Please enter your name: ')
         name = get_input()
-        players.append(Player(name))
+        players.append(initialize_player(name))
         say(players[-1], 'Are there more players to sign up? (y/N)') #default no
         response = get_input()
         if not response:
@@ -76,6 +76,13 @@ def get_players() -> list:
         else:
             keep_going = response
     return players
+
+def initialize_player(name: str, money: float = 10) -> Player:
+    """ Set up the player with a Player object and an initial amount of money.
+    """
+    player = Player(name)
+    player.wallet.add_money(money)
+    return player
 
 def deal_cards(deck: Deck, player: Player, num: int) -> None:
     """
@@ -129,8 +136,17 @@ def print_cards(player: Player) -> None:
     # __str__ method isn't getting called like expected
     cards = player.all_cards
     clean_cards = [str(card) for card in cards]
-    say(player, 'Your hand: {}'.format(clean_cards))
     return '{}: Your hand: {}'.format(player.name, clean_cards)
+
+def get_bet_amount(player: Player) -> float:
+    say(player, f'You have ${player.wallet.balance}, what is your bet?')
+    while True:
+        bet_amount = get_input()
+        try:
+            bet_amount = float(bet_amount)
+            return bet_amount
+        except ValueError:
+            say(player, f'{bet_amount} is not a number, try again')
 
 def ask_player_position(deck: Deck, players: list) -> None:
     """
@@ -140,7 +156,9 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
-        print_cards(player)
+        bet_amount = get_bet_amount(player)
+        player.wallet.remove_money(float(bet_amount))
+        say(player, get_cards(player))
         while True:
             report_score(player)
             say(player, 'Would you like to hit or stay? (h/S) ')
@@ -157,6 +175,7 @@ def ask_player_position(deck: Deck, players: list) -> None:
         # to check the dealer's hand
         if score == 21:
             say(player, 'Blackjack!')
+
         if score >= 21:
             say(player, 'Bust!  Too bad.')
 
@@ -172,6 +191,7 @@ def play_game() -> None:
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
+    dealer.wallet.add_money(1000)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
     # TODO: missing features at this point:

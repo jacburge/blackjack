@@ -84,8 +84,8 @@ def get_score(player: Player) -> int:
     """
     aces = 0
     score = 0
-    for card in player.all_cards():
-        value = card.value()
+    for card in player.all_cards:
+        value = card.points
         if value == 1:
             aces += 1
             score += 1
@@ -107,7 +107,7 @@ def print_cards(player: Player) -> None:
     """
     # TODO: the card format is not very nice, figure out why Card's
     # __str__ method isn't getting called like expected
-    cards = player.all_cards()
+    cards = player.all_cards
     say(player, 'Your hand: {}'.format(cards))
 
 

@@ -32,16 +32,6 @@ class TestDeck(unittest.TestCase):
         shuffled_ten = test_deck[:10]
         self.assertNotEqual(first_ten, shuffled_ten)
 
-    # def test_dealt_cards_are_different(self):
-    #     test_deck = deck.Deck()
-    #     dealt_cards = [test_deck.deal() for _ in range(10)]
-
-    #     # dealt_cards = []
-    #     # for _ in range(10):
-    #     #     dealt_cards.append(test_deck.deal())
-    #     set_cards = set(dealt_cards)
-    #     self.assertEqual(len(dealt_cards), len(set_cards))
-
     def test_dealt_cards_are_different(self):
         test_deck = deck.Deck()
         test_deck.shuffle()

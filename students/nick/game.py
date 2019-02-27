@@ -106,13 +106,13 @@ def get_score(player: Player) -> int:
     """
     aces = 0
     score = 0
-    for card in player.all_cards():
-        value = card.value()
-        if value == 1:
+    for card in player.all_cards:
+        points = card.points
+        if points == 1:
             aces += 1
             score += 1
         else:
-            score += value
+            score += points
     if not aces:
         return score
     for num in range(aces):

@@ -15,7 +15,7 @@ from typing import Tuple
 
 import yaml
 
-from common.timeit import timeit
+from common.timeit import timeit_to_log
 from deck import Deck
 from player import Player
 
@@ -79,7 +79,8 @@ def get_players() -> list:
     while keep_going.lower() not in ['n', 'no']:
         say(None, 'Please enter your name: ')
         name = get_input()
-        players.append(Player(name))
+        initialize_player(name)
+        # players.append(Player(name))
         say(players[-1], 'Are there more players to sign up? (y/N)')
         response = get_input()
         if not response:
@@ -88,6 +89,11 @@ def get_players() -> list:
             keep_going = response
     return players
 
+def initialize_player(name: str, money: float = 10):
+    ''' Set up a player with initial amount of money. '''
+    player = Player(name)
+    player.wallet.add_money(money)
+    return player
 
 def deal_cards(deck: Deck, player: Player, num: int) -> None:
     """
@@ -119,7 +125,7 @@ def get_score(player: Player) -> int:
     """
     aces = 0
     score = 0
-    for card in player.all_cards():
+    for card in player.all_cards:
         value = card.value()
         if value == 1:
             aces += 1
@@ -141,7 +147,7 @@ def format_cards(player: Player) -> str:
     Formats the player's current hand.
     """
     str_list = []
-    for card in player.all_cards():
+    for card in player.all_cards:
         str_list.append(card.rank)
         str_list.append(' of ')
         str_list.append(card.suit)
@@ -183,7 +189,7 @@ def ask_player_position(deck: Deck, players: list) -> None:
         if score >= 21:
             say(player, 'Bust!  Too bad.')
 
-@timeit
+@timeit_to_log
 def play_game() -> None:
     """
     Start the game.  This is the main event loop.
@@ -201,8 +207,12 @@ def play_game() -> None:
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
+    dealer.wallet.add_money(1000)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
+    # for player in players:
+    #     print("Print player.points to get exception: "+str(player.points))
+
     # TODO: missing features at this point:
     # * betting
     # * comparisons with the dealer's hand
