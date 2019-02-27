@@ -15,6 +15,7 @@ from typing import Tuple
 
 import yaml
 
+from common.timeit import timeit
 from deck import Deck
 from player import Player
 
@@ -182,7 +183,7 @@ def ask_player_position(deck: Deck, players: list) -> None:
         if score >= 21:
             say(player, 'Bust!  Too bad.')
 
-
+@timeit
 def play_game() -> None:
     """
     Start the game.  This is the main event loop.

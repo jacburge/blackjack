@@ -1,6 +1,13 @@
 '''
 @timeit decorator which allows you to measure the execution time of the method/function by just adding the @timeit decorator on the method.
 
+Usage:
+from common.timeit import timeit
+
+@timeit
+def add(a,b):  # your function
+    return a+b
+
 Code copied from:
 https://medium.com/pythonhive/python-decorator-to-measure-the-execution-time-of-methods-fa04cb6bb36d
 
