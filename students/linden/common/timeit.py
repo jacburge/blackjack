@@ -13,13 +13,13 @@ time_diff = current_milli_time() — start_time debug_log_time_diff.update({'FET
 '''
 import time
 
-
+#TODO How to use log_name and log_time
 def timeit(method):
     def timed(*args, **kw):
         start_time = time.time() # TODO use time.perf_counter()   for more accurate
         result = method(*args, **kw)
         stop_time = time.time()
-        if 'log_time' in kw:
+        if 'log_time' in kw:  # Helps you collect the data if you pass log_name to the decorator
             name = kw.get('log_name', method.__name__.upper())
             kw['log_time'][name] = int((stop_time - start_time) * 1000)
         else:
