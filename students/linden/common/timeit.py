@@ -3,12 +3,13 @@
 
 Usage:
 from common.timeit import timeit
+TODO Add in other docs
 
 @timeit
 def add(a,b):  # your function
     return a+b
 
-Code copied from:
+Based on code from:
 https://medium.com/pythonhive/python-decorator-to-measure-the-execution-time-of-methods-fa04cb6bb36d
 
 This is less code than:
@@ -27,6 +28,7 @@ logger = logging.getLogger(__name__)
 
 
 def timeit(method):
+    ''' Prints timing information to stdout. '''
     def timed(*args, **kw):
         start_time = time.time()  # TODO use time.perf_counter()   for more accurate
         result = method(*args, **kw)
