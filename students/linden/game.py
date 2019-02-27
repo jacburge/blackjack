@@ -183,7 +183,7 @@ def ask_player_position(deck: Deck, players: list) -> None:
         if score >= 21:
             say(player, 'Bust!  Too bad.')
 
-@timeit_log
+@timeit_to_log
 def play_game() -> None:
     """
     Start the game.  This is the main event loop.
