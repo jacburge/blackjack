@@ -6,16 +6,19 @@ of its own state.
 from typing import List
 
 from card import Card
+import money
 
 
 class Player():
     """ The person playing the game. """
 
     def __init__(self, name: str, is_dealer: bool = False):
+        # Following are instance attributes because they are in init
         self.name = name
         self.is_dealer = is_dealer
         self._faceup_cards: List = []
         self._facedown_card = None
+        self.wallet = money.Wallet()
 
     def add_card(self, card: Card) -> None:
         """ Add a card to the player's hand.  This will correctly hide

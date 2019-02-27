@@ -79,7 +79,8 @@ def get_players() -> list:
     while keep_going.lower() not in ['n', 'no']:
         say(None, 'Please enter your name: ')
         name = get_input()
-        players.append(Player(name))
+        initialize_player(name)
+        # players.append(Player(name))
         say(players[-1], 'Are there more players to sign up? (y/N)')
         response = get_input()
         if not response:
@@ -88,6 +89,11 @@ def get_players() -> list:
             keep_going = response
     return players
 
+def initialize_player(name: str, money: float = 10):
+    ''' Set up a player with initial amount of money. '''
+    player = Player(name)
+    player.wallet.add_money(money)
+    return player
 
 def deal_cards(deck: Deck, player: Player, num: int) -> None:
     """
@@ -201,6 +207,7 @@ def play_game() -> None:
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
+    dealer.wallet.add_money(1000)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
     # for player in players:
