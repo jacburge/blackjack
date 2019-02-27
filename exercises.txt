@@ -77,3 +77,4 @@ Topic: @property decorator
    that these are working as expected.
    run all tests
    run pylint
+   commit and push code
