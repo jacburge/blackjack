@@ -114,7 +114,7 @@ def get_score(player: Player) -> int:
     """
     aces = 0
     score = 0
-    for card in player.all_cards():
+    for card in player.all_cards:
         points = card.points
         if points == 1:
             aces += 1
@@ -135,7 +135,7 @@ def get_cards(player: Player) -> None:
     """
     Print out the player's current hand.
     """
-    cards = [str(card) for card in player.all_cards()]
+    cards = [str(card) for card in player.all_cards]
     cardlist = ', '.join(cards)
     return 'Your hand: ' + cardlist
 
