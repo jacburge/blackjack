@@ -20,7 +20,7 @@ class TestGame(unittest.TestCase):
     def test_deal_cards(self):
         num_cards = 2
         game.deal_cards(self.deck, self.p1, num_cards)
-        self.assertEqual(num_cards, len(self.p1.visible_cards()))
+        self.assertEqual(num_cards, len(self.p1.visible_cards))
 
     def test_dealt_cards_are_different(self):
         num_cards = 10
