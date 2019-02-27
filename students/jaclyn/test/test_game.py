@@ -11,6 +11,7 @@ class TestGame(unittest.TestCase):
 
     def setUp(self):
         self.bob = player.Player('Bob')
+        self.dealer = player.Player('Dealer', is_dealer=True)
         self.deck = Deck()
         self.deck.shuffle()
 
