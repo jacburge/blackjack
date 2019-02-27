@@ -10,8 +10,34 @@ Based on the rules at:
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
 
+import logging
+import yaml
 from deck import Deck
 from player import Player
+
+# pylint: disable=fixme
+
+logger = logging.getLogger('blackjack')  # pylint: disable=invalid-name
+
+CONFIG_FILE = 'config.yaml'
+
+
+def read_config(filename: str) -> dict:
+    """ Read in the configuration information from the config file. """
+    with open(filename, 'r') as fp:  # pylint: disable=invalid-name
+        config_data = yaml.load(fp.read())
+    return config_data
+
+
+def setup_logging(config: dict) -> None:
+    """ Set up the logging facility for our game. """
+    logfile = config['logfile']
+    loglevel = config['loglevel']
+    logformat = config['format']
+    logging.basicConfig(filename=logfile,
+                        level=loglevel,
+                        format=logformat)
+
 
 def say(player: Player, text: str) -> None:
     """
@@ -143,6 +169,8 @@ def play_game() -> None:
     """
     Start the game.  This is the main event loop.
     """
+    setup_logging(read_config(CONFIG_FILE))
+    logger.log("Game started!")
     say(None, 'Welcome to Blackjack!')
     deck: Deck = Deck()  # start with a single deck
     deck.shuffle()

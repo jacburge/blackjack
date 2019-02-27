@@ -14,16 +14,16 @@ class Player():
         self._faceup_cards = []
         self._facedown_card = None
 
-    def points(self, include_facedown: bool = False) -> int:
+    def calculate_points(self, include_facedown: bool = False) -> int:
         """ Return the number of points in the player's hand.  If the
         facedown option is not specified, only the faceup cards will be
         tallied.  If facedown is set to True, all cards (even hidden
         cards) will be counted. """
         points = 0
         for card in self._faceup_cards:
-            points += card.value()
+            points += card.points
         if include_facedown:
-            points += self._facedown_card.value()
+            points += self._facedown_card.points
         return points
 
     def add_card(self, card: Card) -> None:
@@ -34,15 +34,26 @@ class Player():
         else:
             self._faceup_cards.append(card)
 
+    @property
     def visible_cards(self) -> list:
         """ Return a list of the player's visible cards """
         return self._faceup_cards
 
+    @property
     def all_cards(self) -> list:
         """ Return a list of all the player's cards, whether visible or
-        not. """
+            not. """
         cards = []
         cards.extend(self._faceup_cards)
         if self._facedown_card:
             cards.append(self._facedown_card)
         return cards
+
+    @property
+    def all_cards_printable(self, separator: str = ', ') -> str:
+        """ Return a prettified list of all the player's cards, for use in
+            logging"""
+        cards = [str(card) for card in self._faceup_cards]
+        if self._facedown_card:
+            cards.append(str(self._facedown_card))
+        return separator.join(cards)

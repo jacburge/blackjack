@@ -1,0 +1,4 @@
+logfile: blackjack.log
+# this is a comment
+loglevel: DEBUG
+format: "%(asctime)s %(levelname)s: %(message)s"

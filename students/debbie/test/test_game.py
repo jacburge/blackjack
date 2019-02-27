@@ -19,7 +19,7 @@ class TestGame(unittest.TestCase):
     def test_deal_cards(self):
         num_cards = 2
         game.deal_cards(self.deck, self.bob, num_cards)
-        self.assertEqual(num_cards, len(self.bob.visible_cards()))
+        self.assertEqual(num_cards, len(self.bob.visible_cards))
 
     def test_basic_score_determination(self):
         self.bob.add_card(Card('5', 'hearts'))
@@ -56,6 +56,12 @@ class TestGame(unittest.TestCase):
         self.bob.add_card(Card('A', 'clubs'))
         self.bob.add_card(Card('A', 'clubs'))
         self.assertEqual(21, game.get_score(self.bob))
+
+    def test_print_cards_format(self):
+        self.bob.add_card(Card('9', 'hearts'))
+        self.bob.add_card(Card('A', 'clubs'))
+        expected_cards = 'Your cards are: 9 of Hearts, A of Clubs'
+        self.assertEqual(game.print_cards(self.bob), expected_cards)
 
 
 if __name__ == '__main__':

@@ -34,10 +34,12 @@ class Player():
         else:
             self._faceup_cards.append(card)
 
+    @property
     def visible_cards(self) -> list:
         """ Return a list of the player's visible cards """
         return self._faceup_cards
 
+    @property
     def all_cards(self) -> list:
         """ Return a list of all the player's cards, whether visible or
         not. """

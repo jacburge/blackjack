@@ -10,8 +10,32 @@ Based on the rules at:
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
 
+import logging
+import yaml
 from deck import Deck
 from player import Player
+
+logger = logging.getLogger('blackjack') # pylint: disable=invalid-name
+
+# pylint: disable=fixme
+
+CONFIG_FILE = 'config.yaml'
+
+def read_config(filename: str) -> dict:
+    """ Read in the configuration information from the config file."""
+    with open(filename, 'r') as fp: # pylint: disable=invalid-name
+        config_data = yaml.load(fp.read())
+    return config_data
+
+
+def setup_logging(config: dict) -> None:
+    """ Set up the logging facility for our game."""
+    logfile = config['logfile']
+    loglevel = config['loglevel']
+    logformat = config['format']
+    logging.basicConfig(filename=logfile,
+                        level=loglevel,
+                        format=logformat)
 
 def say(player: Player, text: str) -> None:
     """
@@ -21,8 +45,10 @@ def say(player: Player, text: str) -> None:
     """
     if player:
         print('{}: {}'.format(player.name, text))
+        logger.debug('%s: %s', player.name, text)
     else:
         print(text)
+        logger.debug('%s', text)
 
 
 def get_input() -> str:
@@ -83,7 +109,7 @@ def get_score(player: Player) -> int:
     """
     aces = 0
     score = 0
-    for card in player.all_cards():
+    for card in player.all_cards:
         value = card.value()
         if value == 1:
             aces += 1
@@ -106,9 +132,12 @@ def print_cards(player: Player) -> None:
     """
     # TODO: the card format is not very nice, figure out why Card's
     # __str__ method isn't getting called like expected
-    cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
-
+    card_values = []
+    cards = player.all_cards
+    for card in cards:
+        card_values.append(str(card))
+    card_reported_value = 'Your cards are: ' + ', '.join(card_values)
+    return card_reported_value
 
 def ask_player_position(deck: Deck, players: list) -> None:
     """
@@ -118,14 +147,14 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
-        print_cards(player)
+        say(player, print_cards(player))
         while True:
             report_score(player)
             say(player, 'Would you like to hit or stay? (h/S) ')
             answer = get_input()
             if answer.lower() in ['h', 'hit']:
                 deal_cards(deck, player, 1)
-                print_cards(player)
+                say(player, print_cards(player))
                 if get_score(player) >= 21:
                     break
             else:
@@ -143,6 +172,9 @@ def play_game() -> None:
     """
     Start the game.  This is the main event loop.
     """
+    config = read_config(CONFIG_FILE)
+    setup_logging(config)
+    logger.info('Game starting')
     say(None, 'Welcome to Blackjack!')
     deck: Deck = Deck() # start with a single deck
     deck.shuffle()

@@ -3,6 +3,7 @@ import unittest
 
 import game
 from card import Card
+from common import timeit
 from deck import Deck
 from player import Player
 
@@ -11,16 +12,24 @@ sys.path.insert(0, '..')
 
 class TestGame(unittest.TestCase):
 
+    @timeit.timeit
     def setUp(self):
         self.bob = Player('Bob')
         self.dealer = Player('Dealer', is_dealer=True)
         self.test_deck = Deck()
         self.test_deck.shuffle()
 
+    def test_format_cards(self):
+        # 10-diamonds 10, J-diamonds 10
+        self.bob.add_card(Card('10', 'diamonds'))
+        self.bob.add_card(Card('J', 'diamonds'))
+        self.assertEqual("10 of diamonds, J of diamonds",
+                         game.format_cards(self.bob))
+
     def test_deal_cards(self):
         num_cards = 2
         game.deal_cards(self.test_deck, self.bob, num_cards)
-        self.assertEqual(num_cards, len(self.bob.visible_cards()))
+        self.assertEqual(num_cards, len(self.bob.visible_cards))
 
     def test_basic_score_determination(self):
         self.bob.add_card(Card('5', 'hearts'))

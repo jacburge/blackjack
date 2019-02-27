@@ -11,13 +11,14 @@ class TestGame(unittest.TestCase):
 
     def setUp(self):
         self.bob = player.Player('Bob')
+        self.dealer = player.Player('Dealer', is_dealer=True)
         self.deck = Deck()
         self.deck.shuffle()
 
     def test_deal_cards(self):
         num_cards = 2
         game.deal_cards(self.deck, self.bob, num_cards)
-        self.assertEqual(num_cards, len(self.bob.visible_cards()))
+        self.assertEqual(num_cards, len(self.bob.visible_cards))
 
     def test_basic_score_determination(self):
         self.bob.add_card(Card('5', 'hearts'))
@@ -55,6 +56,11 @@ class TestGame(unittest.TestCase):
         self.bob.add_card(Card('A', 'clubs'))
         self.assertEqual(21, game.get_score(self.bob))
 
+    def test_clean_print_cards(self):
+        self.bob.add_card(Card('9', 'hearts'))
+        expected = '{}: {}'.format(self.bob.name, "Your hand: ['9 of Hearts']")
+        reality = game.print_cards(self.bob)
+        self.assertEqual(expected,reality)
 
 if __name__ == '__main__':
     unittest.main()
