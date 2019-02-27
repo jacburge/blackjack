@@ -49,7 +49,7 @@ Topic: improving existing code; __str__() and __repr__()
    need to modify the Card object.  Write a test to ensure that the
    output is what you expected -- you'll probably want to modify the
    function to return data rather than having the say() call inside the
-   report_score() function, for easier testing.
+   print_cards() function, for easier testing.
    run all tests
    run pylint
 

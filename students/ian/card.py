@@ -9,11 +9,12 @@ class Card():
     """ A simple class representing a single playing card; barely
     qualifies to be a class on its own """
     values = {str(num): num for num in range(2, 11)}
-    values.update({'J': 10, 'Q': 10, 'K': 10}) # A is a special case
+    values.update({'J': 10, 'Q': 10, 'K': 10, 'A': 1})
 
     def __init__(self, rank: str, suit: str):
         self.rank = rank
         self.suit = suit
+        self.points = self.values[self.rank]
 
     def __repr__(self):
         return 'Card("{rank}", "{suit}")'.format(rank=self.rank, suit=self.suit)
@@ -23,9 +24,3 @@ class Card():
 
     #def __eq__(self, other):
         #return self.value() == other.value()
-
-    def value(self: object) -> int:
-        """ Return the point value of a card """
-        if self.rank == 'A':
-            return 1
-        return self.values[self.rank]

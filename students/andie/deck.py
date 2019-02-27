@@ -5,9 +5,10 @@ and a built-in deal() method, as well as being able to initialize itself
 to a standard 52-card deck.
 """
 
-import collections
+# import collections
 import random
 from card import Card
+
 
 class Deck():
     """
@@ -16,11 +17,11 @@ class Deck():
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
     suits = ['clubs', 'diamonds', 'hearts', 'spades']
 
-    def __init__(self, number: int=1):
-        """ 
+    def __init__(self, number: int = 1):
+        """
         Initialize the deck
 
-        Args:   
+        Args:
             number: the number of 52-deck cards to create
 
         Returns:
@@ -29,7 +30,7 @@ class Deck():
         self._cards = [Card(rank, suit)
                        for rank in self.ranks
                        for suit in self.suits]
-                       #for _ in range(number)]
+        # for _ in range(number)]
         self._cards *= number
 
     def __len__(self) -> int:

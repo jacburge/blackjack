@@ -9,9 +9,29 @@ Based on the rules at:
 
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
-
+import yaml
+import logging
 from deck import Deck
 from player import Player
+
+logger = logging.getLogger('blackjack') #pylint: disable=invalid-name
+
+CONFIG_FILE = 'config.yaml'
+
+def read_config(filename: str) -> dict:
+    """ Read in the configuraoitn information from the config file. """
+    with open(filename, 'r') as fp:
+        config_data = yaml.load(fp.read())
+    return config_data
+
+def setup_logging(config: dict) -> None:
+    """ Set up the logging facility for our game. """
+    logfile = config['logfile']
+    loglevel = config['loglevel']
+    logformat = config['format']
+    logging.basicConfig(filename=logfile,
+                        level=loglevel,
+                        format=logformat)
 
 def say(player: Player, text: str) -> None:
     """
@@ -19,10 +39,17 @@ def say(player: Player, text: str) -> None:
     print() statement, but if we decide to move to Slack or irc, it
     gives us a little leg-up.
     """
+    #note that 'player' can be either None or a Player. remmeber that a None type doesn't have a .name attribute, so you'll need to handle thae two strings differently
+    msg = ''
     if player:
-        print('{}: {}'.format(player.name, text))
+        #print('{}: {}'.format(player.name, text))
+        msg = '{}: {}'.format(player.name, text)
+        #logger.debug(player.name + ": " + text)
     else:
-        print(text)
+        msg = text
+        #print(text)
+    print(msg)
+    logger.debug(msg)
 
 
 def get_input() -> str:
@@ -104,6 +131,7 @@ def print_cards(player: Player) -> None:
     """
     Print out the player's current hand.
     """
+    # pylint: disable=fixme
     # TODO: the card format is not very nice, figure out why Card's
     # __str__ method isn't getting called like expected
     cards = player.all_cards()
@@ -131,6 +159,7 @@ def ask_player_position(deck: Deck, players: list) -> None:
             else:
                 break
         score = report_score(player)
+        # pylint: disable=fixme
         # TODO: this takes no account of the dealer's cards, add code
         # to check the dealer's hand
         if score == 21:
@@ -143,6 +172,9 @@ def play_game() -> None:
     """
     Start the game.  This is the main event loop.
     """
+    config = read_config(CONFIG_FILE)
+    setup_logging(config)
+    logger.info('Game starting')
     say(None, 'Welcome to Blackjack!')
     deck: Deck = Deck() # start with a single deck
     deck.shuffle()
@@ -150,6 +182,7 @@ def play_game() -> None:
     dealer: Player = Player('Dealer', is_dealer=True)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
+    # pylint: disable=fixme
     # TODO: missing features at this point:
     # * betting
     # * comparisons with the dealer's hand

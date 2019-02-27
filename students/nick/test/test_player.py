@@ -44,5 +44,15 @@ class TestPlayer(unittest.TestCase):
         self.assertIn(hidden_card, self.dealer.all_cards())
         self.assertEqual(2, len(self.dealer.all_cards()))
 
+    def test_all_cards_pretty_print(self):
+        hidden_card = Card('K', 'hearts')
+        visible_card = Card('2', 'hearts')
+        self.dealer.add_card(hidden_card)
+        self.dealer.add_card(visible_card)
+
+        # the hidden card gets printed last, by design
+        expected = '2 of Hearts, K of Hearts'
+        self.assertEqual(expected, self.dealer.all_cards_printable())
+
 if __name__ == '__main__':
     unittest.main()

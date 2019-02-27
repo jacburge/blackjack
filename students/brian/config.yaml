@@ -1,0 +1,3 @@
+logfile: blackjack.log
+loglevel: DEBUG
+format: "%(asctime)s %(levelname)s: %(message)s"

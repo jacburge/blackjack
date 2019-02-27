@@ -8,22 +8,22 @@ from card import Card
 class Player():
     """ This needs to be updated """
 
-    def __init__(self, name: str, is_dealer: bool = False):
+    def __init__(self, name: str, is_dealer: bool=False):
         self.name = name
         self.is_dealer = is_dealer
         self._faceup_cards = []
         self._facedown_card = None
 
-    def points(self, include_facedown: bool = False) -> int:
+    def get_points(self, include_facedown: bool=False) -> int:
         """ Return the number of points in the player's hand.  If the
         facedown option is not specified, only the faceup cards will be
         tallied.  If facedown is set to True, all cards (even hidden
         cards) will be counted. """
         points = 0
         for card in self._faceup_cards:
-            points += card.value()
+            points += card.points
         if include_facedown:
-            points += self._facedown_card.value()
+            points += self._facedown_card.points
         return points
 
     def add_card(self, card: Card) -> None:

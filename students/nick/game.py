@@ -10,8 +10,32 @@ Based on the rules at:
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
 
+import logging
+import yaml
 from deck import Deck
 from player import Player
+
+# pylint: disable=fixme
+
+LOG = logging.getLogger(__name__)
+
+_CONFIG_FILE = 'config.yaml'
+
+def read_config(filename: str) -> dict:
+    """ Read the configuration from the config file """
+    # pylint: disable=invalid-name
+    with open(filename, 'r') as fp:
+        config_data = yaml.load(fp.read())
+    return config_data
+
+def setup_logging(config: dict) -> None:
+    """ Set up logging with the options specified in the config file """
+    logfile = config['logfile']
+    loglevel = config['loglevel']
+    logformat = config['format']
+    logging.basicConfig(filename=logfile,
+                        level=loglevel,
+                        format=logformat)
 
 def say(player: Player, text: str) -> None:
     """
@@ -19,10 +43,9 @@ def say(player: Player, text: str) -> None:
     print() statement, but if we decide to move to Slack or irc, it
     gives us a little leg-up.
     """
-    if player:
-        print('{}: {}'.format(player.name, text))
-    else:
-        print(text)
+    log = '{}: {}'.format(player.name, text) if player else text
+    print(log)
+    LOG.debug(log)
 
 
 def get_input() -> str:
@@ -106,11 +129,10 @@ def print_cards(player: Player) -> None:
     """
     # TODO: the card format is not very nice, figure out why Card's
     # __str__ method isn't getting called like expected
-    cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
+    say(player, 'Your hand: {}'.format(player.all_cards_printable()))
 
 
-def ask_player_position(deck: Deck, players: list) -> None:
+def ask_player_position(deck: Deck, players: list, dealer: Player) -> None:
     """
     Go through the list of players, and for each of them, ask if they
     want to hit or stay.  Return when all players are finished.
@@ -130,26 +152,30 @@ def ask_player_position(deck: Deck, players: list) -> None:
                     break
             else:
                 break
-        score = report_score(player)
-        # TODO: this takes no account of the dealer's cards, add code
-        # to check the dealer's hand
-        if score == 21:
-            say(player, 'Blackjack!')
-        if score >= 21:
-            say(player, 'Bust!  Too bad.')
+        # player_score = report_score(player)
+        dealer_score = report_score(dealer)
+        print(dealer_score)
+        # if player_score == 21 and dealer_score != 21:
+        #     say(player, 'Blackjack!')
+        # elif player_score > 21 and dealer_score <= 21:
+        #     say(player, 'Bust!  Too bad.')
+        # elif player_score < 21 and dealer_score < 21:
+        #     if player_score > dealer_score:
+        #         say(player, 'Wins!')
 
 
 def play_game() -> None:
     """
     Start the game.  This is the main event loop.
     """
-    say(None, 'Welcome to Blackjack!')
+    setup_logging(read_config(_CONFIG_FILE))
+    LOG.info("Welcome to Blackjack!")
     deck: Deck = Deck() # start with a single deck
     deck.shuffle()
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
     deal_cards(deck, dealer, 2)
-    ask_player_position(deck, players)
+    ask_player_position(deck, players, dealer)
     # TODO: missing features at this point:
     # * betting
     # * comparisons with the dealer's hand

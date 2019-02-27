@@ -10,8 +10,33 @@ Based on the rules at:
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
 
+import logging
+import yaml
 from deck import Deck
 from player import Player
+
+logger = logging.getLogger('blackjack') # pylint: disable=invalid-name
+
+# pylint: disable=fixme
+
+CONFIG_FILE: str = 'config.yaml'
+
+def read_config(filename: str) -> dict:
+    """ Read in the configuration information from the config file. """
+    with open(filename, 'r') as fp:  # pylint: disable=invalid-name
+        config_data = yaml.load(fp.read())
+    return config_data
+
+
+def setup_logging(config: dict) -> None:
+    """ Set up the logging facility for our game. """
+    logfile = config['logfile']
+    loglevel = config['loglevel']
+    logformat = config['format']
+    logging.basicConfig(filename=logfile,
+                        level=loglevel,
+                        format=logformat)
+
 
 def say(player: Player, text: str) -> None:
     """
@@ -19,10 +44,16 @@ def say(player: Player, text: str) -> None:
     print() statement, but if we decide to move to Slack or irc, it
     gives us a little leg-up.
     """
+    # note that `player` can be either None or a Player.  remember that
+    # a None type doesn't have a .name attribute, so you'll need to
+    # handle the two strings differently.
+    msg = ''
     if player:
-        print('{}: {}'.format(player.name, text))
+        msg = '{}: {}'.format(player.name, text)
     else:
-        print(text)
+        msg = text
+    print(msg)
+    logger.debug(msg)
 
 
 def get_input() -> str:
@@ -84,12 +115,12 @@ def get_score(player: Player) -> int:
     aces = 0
     score = 0
     for card in player.all_cards():
-        value = card.value()
-        if value == 1:
+        points = card.points
+        if points == 1:
             aces += 1
             score += 1
         else:
-            score += value
+            score += points
     if not aces:
         return score
     for num in range(aces):
@@ -100,14 +131,13 @@ def get_score(player: Player) -> int:
     return score
 
 
-def print_cards(player: Player) -> None:
+def get_cards(player: Player) -> None:
     """
     Print out the player's current hand.
     """
-    # TODO: the card format is not very nice, figure out why Card's
-    # __str__ method isn't getting called like expected
-    cards = player.all_cards()
-    say(player, 'Your hand: {}'.format(cards))
+    cards = [str(card) for card in player.all_cards()]
+    cardlist = ', '.join(cards)
+    return 'Your hand: ' + cardlist
 
 
 def ask_player_position(deck: Deck, players: list) -> None:
@@ -118,14 +148,14 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
-        print_cards(player)
+        say(player, get_cards(player))
         while True:
             report_score(player)
             say(player, 'Would you like to hit or stay? (h/S) ')
             answer = get_input()
             if answer.lower() in ['h', 'hit']:
                 deal_cards(deck, player, 1)
-                print_cards(player)
+                say(player, get_cards(player))
                 if get_score(player) >= 21:
                     break
             else:
@@ -143,6 +173,9 @@ def play_game() -> None:
     """
     Start the game.  This is the main event loop.
     """
+    config = read_config(CONFIG_FILE)
+    setup_logging(config)
+    logger.info('Game starting')
     say(None, 'Welcome to Blackjack!')
     deck: Deck = Deck() # start with a single deck
     deck.shuffle()
@@ -150,6 +183,7 @@ def play_game() -> None:
     dealer: Player = Player('Dealer', is_dealer=True)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
+    # pylint: disable=fixme
     # TODO: missing features at this point:
     # * betting
     # * comparisons with the dealer's hand
