@@ -10,7 +10,7 @@ Based on the rules at:
 https://www.bicyclecards.com/how-to-play/blackjack/
 """
 
-import logging
+import logging  # https://docs.python.org/3/howto/logging.html
 from typing import Tuple
 
 import yaml
