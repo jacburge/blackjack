@@ -52,3 +52,25 @@ Topic: improving existing code; __str__() and __repr__()
    report_score() function, for easier testing.
    run all tests
    run pylint
+
+Topic: improving existing code: sorting
+*. Implement the dunder methods necessary for sorting, and change str
+   to return the cards 'in order'
+
+Topic: @property decorator
+*. In the Card class, the value() method would make more sense as a
+   property (ie, call mycard.value instead of mycard.value()). First
+   change the relevant test, make sure it fails, and then convert value
+   into a class property using the @property decorator. Make sure you run
+   all of the tests now. Do the tests find everything?
+   run all tests
+   run pylint
+   p. 189, decorators; p. 607 properties;
+
+Topic: @property decorator
+*. In the Player class, the visible_cards() and all_cards() methods
+   would also make sense as properties.  Use the @property decorator to
+   make these into properties.  Write tests to confirm that these are
+   working as expected.
+   run all tests
+   run pylint
