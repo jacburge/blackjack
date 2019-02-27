@@ -203,8 +203,8 @@ def play_game() -> None:
     dealer: Player = Player('Dealer', is_dealer=True)
     deal_cards(deck, dealer, 2)
     ask_player_position(deck, players)
-    for player in players:
-        print("Print player.points to get exception: "+str(player.points))
+    # for player in players:
+    #     print("Print player.points to get exception: "+str(player.points))
 
     # TODO: missing features at this point:
     # * betting

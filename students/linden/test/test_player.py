@@ -24,18 +24,6 @@ class TestPlayer(unittest.TestCase):
 
         self.assertEqual(cards, self.bob.visible_cards)
 
-    def test_player_points_are_good(self):
-        self.bob.add_card(Card('K', 'hearts'))
-        self.bob.add_card(Card('2', 'hearts'))
-        self.assertEqual(12, self.bob.points())
-
-    def test_dealer_points_are_good(self):
-        self.dealer.add_card(Card('K', 'hearts'))
-        self.dealer.add_card(Card('2', 'hearts'))
-        # first card is hidden from view for dealers
-        self.assertEqual(2, self.dealer.points())
-        self.assertEqual(12, self.dealer.points(include_facedown=True))
-
     def test_dealer_card_is_hidden(self):
         visible_card = Card('2', 'hearts')
         self.dealer.add_card(Card('K', 'hearts'))
