@@ -136,10 +136,10 @@ def print_cards(player: Player) -> None:
     # __str__ method isn't getting called like expected
     cards = player.all_cards
     clean_cards = [str(card) for card in cards]
-    say(player, 'Your hand: {}'.format(clean_cards))
     return '{}: Your hand: {}'.format(player.name, clean_cards)
 
 def get_bet_amount(player: Player) -> float:
+    say(player, f'You have ${player.wallet.balance}, what is your bet?')
     while True:
         bet_amount = get_input()
         try:
@@ -156,7 +156,6 @@ def ask_player_position(deck: Deck, players: list) -> None:
     for player in players:
         say(player, 'Greetings!')
         deal_cards(deck, player, 2)
-        say(player, f'You have ${player.wallet.balance}, what is your bet?')
         bet_amount = get_bet_amount(player)
         player.wallet.remove_money(float(bet_amount))
         say(player, get_cards(player))

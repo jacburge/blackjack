@@ -77,7 +77,7 @@ class TestGame(unittest.TestCase):
         game.get_input = Mock(side_effect = [bad_input, good_input])
         game.get_bet_amount(self.bob)
         # import pdb; pdb.set_trace()
-        self.assertIn(f'{bad_input} is not a number, try again', str(game.say.mock_calls[0]))
+        self.assertIn(f'{bad_input} is not a number, try again', str(game.say.mock_calls[-1]))
 
 if __name__ == '__main__':
     unittest.main()
