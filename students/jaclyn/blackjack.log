@@ -126,3 +126,273 @@
 2019-02-27 10:11:13,912 DEBUG: Jac: Your hand: ['7 of Clubs', '7 of Hearts', '8 of Diamonds']
 2019-02-27 10:11:13,912 DEBUG: Jac: You have 22 points
 2019-02-27 10:11:13,912 DEBUG: Jac: Bust!  Too bad.
+2019-02-27 15:37:33,562 INFO: Game starting
+2019-02-27 15:37:33,562 DEBUG: Welcome to Blackjack!
+2019-02-27 15:37:33,562 DEBUG: Please enter your name: 
+2019-02-27 15:37:35,507 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 15:37:36,831 DEBUG: Jack: Greetings!
+2019-02-27 15:37:36,831 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 15:37:42,081 DEBUG: Jack: $5 is not a number, try again
+2019-02-27 15:41:26,199 INFO: Game starting
+2019-02-27 15:41:26,199 DEBUG: Welcome to Blackjack!
+2019-02-27 15:41:26,199 DEBUG: Please enter your name: 
+2019-02-27 15:42:26,375 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 15:42:27,609 DEBUG: Jack: Greetings!
+2019-02-27 15:42:27,609 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 15:42:29,798 DEBUG: Jack: Jack: Your hand: ['Q of Spades', '6 of Diamonds']
+2019-02-27 15:42:29,798 DEBUG: Jack: You have 16 points
+2019-02-27 15:42:29,814 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 15:42:33,968 DEBUG: Jack: You have 18 points
+2019-02-27 15:42:33,984 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 15:42:36,029 DEBUG: Jack: You have 27 points
+2019-02-27 15:42:36,029 DEBUG: Jack: Bust!  Too bad.
+2019-02-27 15:44:27,784 INFO: Game starting
+2019-02-27 15:44:27,784 DEBUG: Welcome to Blackjack!
+2019-02-27 15:44:27,784 DEBUG: Please enter your name: 
+2019-02-27 15:44:29,983 DEBUG: Jak: Are there more players to sign up? (y/N)
+2019-02-27 15:44:30,844 DEBUG: Jak: Greetings!
+2019-02-27 15:44:30,844 DEBUG: Jak: You have $10, what is your bet?
+2019-02-27 15:44:33,536 DEBUG: Jak: $5 is not a number, try again
+2019-02-27 15:44:38,270 DEBUG: Jak: Jak: Your hand: ['6 of Clubs', '4 of Spades']
+2019-02-27 15:44:38,270 DEBUG: Jak: You have 10 points
+2019-02-27 15:44:38,286 DEBUG: Jak: Would you like to hit or stay? (h/S) 
+2019-02-27 15:44:39,829 DEBUG: Jak: You have 19 points
+2019-02-27 15:44:39,829 DEBUG: Jak: Would you like to hit or stay? (h/S) 
+2019-02-27 15:44:41,928 DEBUG: Jak: You have 19 points
+2019-02-27 15:44:46,692 INFO: Game starting
+2019-02-27 15:44:46,692 DEBUG: Welcome to Blackjack!
+2019-02-27 15:44:46,692 DEBUG: Please enter your name: 
+2019-02-27 15:44:48,060 DEBUG: jac: Are there more players to sign up? (y/N)
+2019-02-27 15:44:49,023 DEBUG: jac: Greetings!
+2019-02-27 15:44:49,023 DEBUG: jac: You have $10, what is your bet?
+2019-02-27 15:44:50,322 DEBUG: jac: jac: Your hand: ['7 of Diamonds', '5 of Clubs']
+2019-02-27 15:44:50,325 DEBUG: jac: You have 12 points
+2019-02-27 15:44:50,327 DEBUG: jac: Would you like to hit or stay? (h/S) 
+2019-02-27 15:44:56,697 DEBUG: jac: You have 22 points
+2019-02-27 15:45:12,603 INFO: Game starting
+2019-02-27 15:45:12,613 DEBUG: Welcome to Blackjack!
+2019-02-27 15:45:12,613 DEBUG: Please enter your name: 
+2019-02-27 15:45:13,967 DEBUG: jac: Are there more players to sign up? (y/N)
+2019-02-27 15:45:18,267 DEBUG: jac: Greetings!
+2019-02-27 15:45:18,267 DEBUG: jac: You have $10, what is your bet?
+2019-02-27 15:45:19,212 DEBUG: jac:  is not a number, try again
+2019-02-27 15:45:20,707 DEBUG: jac: jac: Your hand: ['6 of Clubs', 'K of Hearts']
+2019-02-27 15:45:20,707 DEBUG: jac: You have 16 points
+2019-02-27 15:45:20,717 DEBUG: jac: Would you like to hit or stay? (h/S) 
+2019-02-27 15:45:21,927 DEBUG: jac: You have 19 points
+2019-02-27 15:45:21,927 DEBUG: jac: Would you like to hit or stay? (h/S) 
+2019-02-27 15:45:22,607 DEBUG: jac: You have 21 points
+2019-02-27 15:45:22,617 DEBUG: jac: Blackjack! You won 5.0
+2019-02-27 15:45:22,617 DEBUG: jac: Bust!  Too bad. You lost 5.0
+2019-02-27 15:59:41,965 INFO: Game starting
+2019-02-27 15:59:41,965 DEBUG: Welcome to Blackjack!
+2019-02-27 15:59:41,981 DEBUG: Please enter your name: 
+2019-02-27 15:59:44,412 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 15:59:47,331 DEBUG: Jack: Greetings!
+2019-02-27 15:59:47,331 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 15:59:49,301 DEBUG: Jack: Jack: Your hand: ['Q of Hearts', 'J of Hearts']
+2019-02-27 15:59:49,301 DEBUG: Jack: You have 20 points
+2019-02-27 15:59:49,317 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 15:59:52,811 DEBUG: Jack: You have 21 points
+2019-02-27 15:59:52,811 DEBUG: Jack: Blackjack! You won $5.0.
+2019-02-27 15:59:52,811 DEBUG: Jack: Bust!  Too bad. You lost $5.0.
+2019-02-27 15:59:52,811 DEBUG: Play again? (y/N)
+2019-02-27 15:59:55,278 INFO: Game starting
+2019-02-27 15:59:55,278 DEBUG: Welcome to Blackjack!
+2019-02-27 15:59:55,278 DEBUG: Please enter your name: 
+2019-02-27 15:59:59,696 DEBUG: jac: Are there more players to sign up? (y/N)
+2019-02-27 16:01:41,032 DEBUG: Please enter your name: 
+2019-02-27 16:01:41,827 DEBUG: : Are there more players to sign up? (y/N)
+2019-02-27 16:01:42,360 DEBUG: jac: Greetings!
+2019-02-27 16:01:42,360 DEBUG: jac: You have $10, what is your bet?
+2019-02-27 16:01:42,708 DEBUG: jac:  is not a number, try again
+2019-02-27 16:01:42,897 DEBUG: jac:  is not a number, try again
+2019-02-27 16:01:43,086 DEBUG: jac:  is not a number, try again
+2019-02-27 16:01:43,260 DEBUG: jac:  is not a number, try again
+2019-02-27 16:01:45,064 DEBUG: jac: jac: Your hand: ['J of Clubs', '3 of Spades']
+2019-02-27 16:01:45,064 DEBUG: jac: You have 13 points
+2019-02-27 16:01:45,064 DEBUG: jac: Would you like to hit or stay? (h/S) 
+2019-02-27 16:01:46,354 DEBUG: jac: You have 21 points
+2019-02-27 16:01:46,356 DEBUG: jac: Blackjack! You won $5.0.
+2019-02-27 16:01:46,357 DEBUG: jac: Bust!  Too bad. You lost $5.0.
+2019-02-27 16:01:46,358 DEBUG: : Greetings!
+2019-02-27 16:01:46,389 DEBUG: : You have $10, what is your bet?
+2019-02-27 16:01:47,389 DEBUG: : h is not a number, try again
+2019-02-27 16:01:49,828 DEBUG: : : Your hand: ['A of Spades', '3 of Clubs']
+2019-02-27 16:01:49,828 DEBUG: : You have 14 points
+2019-02-27 16:01:49,828 DEBUG: : Would you like to hit or stay? (h/S) 
+2019-02-27 16:01:52,150 DEBUG: : You have 14 points
+2019-02-27 16:01:52,150 DEBUG: Play again? (y/N)
+2019-02-27 16:01:57,885 INFO: Game starting
+2019-02-27 16:01:57,900 DEBUG: Welcome to Blackjack!
+2019-02-27 16:01:57,900 DEBUG: Please enter your name: 
+2019-02-27 16:02:00,313 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 16:02:09,540 DEBUG: Jack: Greetings!
+2019-02-27 16:02:09,540 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 16:02:12,118 DEBUG: Jack: Jack: Your hand: ['K of Clubs', '10 of Spades']
+2019-02-27 16:02:12,118 DEBUG: Jack: You have 20 points
+2019-02-27 16:02:12,118 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:02:16,634 DEBUG: Jack: You have 28 points
+2019-02-27 16:02:16,634 DEBUG: Jack: Bust!  Too bad. You lost $5.0.
+2019-02-27 16:02:16,634 DEBUG: Play again? (y/N)
+2019-02-27 16:02:19,101 DEBUG: Jack: Greetings!
+2019-02-27 16:02:19,101 DEBUG: Jack: You have $5.0, what is your bet?
+2019-02-27 16:02:28,334 DEBUG: Jack: Jack: Your hand: ['K of Clubs', '10 of Spades', '8 of Spades', '7 of Hearts', '7 of Clubs']
+2019-02-27 16:02:28,334 DEBUG: Jack: You have 42 points
+2019-02-27 16:02:28,334 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:03:21,629 DEBUG: Jack: You have 46 points
+2019-02-27 16:03:21,629 DEBUG: Jack: Bust!  Too bad. You lost $5.0.
+2019-02-27 16:03:21,629 DEBUG: Play again? (y/N)
+2019-02-27 16:03:24,867 INFO: Game starting
+2019-02-27 16:03:24,867 DEBUG: Welcome to Blackjack!
+2019-02-27 16:03:24,867 DEBUG: Please enter your name: 
+2019-02-27 16:03:26,071 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 16:03:27,012 DEBUG: Jack: Greetings!
+2019-02-27 16:03:27,012 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 16:03:28,308 DEBUG: Jack: Jack: Your hand: ['5 of Hearts', '4 of Diamonds']
+2019-02-27 16:03:28,308 DEBUG: Jack: You have 9 points
+2019-02-27 16:03:28,308 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:03:29,676 DEBUG: Jack: You have 16 points
+2019-02-27 16:03:29,676 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:03:30,500 DEBUG: Jack: You have 25 points
+2019-02-27 16:03:30,500 DEBUG: Jack: Bust!  Too bad. You lost $5.0.
+2019-02-27 16:03:30,500 DEBUG: Play again? (y/N)
+2019-02-27 16:03:32,675 DEBUG: Jack: Greetings!
+2019-02-27 16:03:32,675 DEBUG: Jack: You have $5.0, what is your bet?
+2019-02-27 16:03:35,156 DEBUG: Jack: Jack: Your hand: ['5 of Hearts', '4 of Diamonds', '7 of Clubs', '9 of Spades', '3 of Hearts', 'Q of Spades']
+2019-02-27 16:03:35,156 DEBUG: Jack: You have 38 points
+2019-02-27 16:03:35,156 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:23:17,664 DEBUG: Jack: You have 48 points
+2019-02-27 16:23:17,667 DEBUG: Jack: Bust!  Too bad. You lost $1.0.
+2019-02-27 16:23:17,670 DEBUG: Play again? (y/N)
+2019-02-27 16:23:21,262 INFO: Game starting
+2019-02-27 16:23:21,263 DEBUG: Welcome to Blackjack!
+2019-02-27 16:23:21,266 DEBUG: Please enter your name: 
+2019-02-27 16:23:22,893 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 16:23:24,450 DEBUG: Jack: Greetings!
+2019-02-27 16:23:24,453 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 16:23:26,079 DEBUG: Jack: Jack: Your hand: ['7 of Clubs', '4 of Spades']
+2019-02-27 16:23:26,082 DEBUG: Jack: You have 11 points
+2019-02-27 16:23:26,087 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:23:27,668 DEBUG: Jack: You have 21 points
+2019-02-27 16:23:27,671 DEBUG: Jack: Blackjack! You won $5.0.
+2019-02-27 16:23:27,673 DEBUG: Jack: Bust!  Too bad. You lost $5.0.
+2019-02-27 16:23:27,676 DEBUG: Play again? (y/N)
+2019-02-27 16:24:20,392 INFO: Game starting
+2019-02-27 16:24:20,393 DEBUG: Welcome to Blackjack!
+2019-02-27 16:24:20,395 DEBUG: Please enter your name: 
+2019-02-27 16:24:24,778 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 16:24:25,777 DEBUG: Jack: Greetings!
+2019-02-27 16:24:25,781 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 16:24:26,998 DEBUG: Jack: Jack: Your hand: ['9 of Diamonds', '8 of Spades']
+2019-02-27 16:24:27,002 DEBUG: Jack: You have 17 points
+2019-02-27 16:24:27,004 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:24:28,035 DEBUG: Jack: You have 27 points
+2019-02-27 16:24:28,038 DEBUG: Jack: Bust!  Too bad. You lost $5.0.
+2019-02-27 16:24:28,040 DEBUG: Play again? (y/N)
+2019-02-27 16:24:30,639 DEBUG: Jack: Greetings!
+2019-02-27 16:24:30,642 DEBUG: Jack: You have $5.0, what is your bet?
+2019-02-27 16:24:33,960 DEBUG: Jack: Jack: Your hand: ['4 of Clubs', 'A of Spades']
+2019-02-27 16:24:33,964 DEBUG: Jack: You have 15 points
+2019-02-27 16:24:33,968 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:24:35,223 DEBUG: Jack: You have 16 points
+2019-02-27 16:24:35,227 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:24:36,221 DEBUG: Jack: You have 16 points
+2019-02-27 16:24:36,224 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:24:37,554 DEBUG: Jack: You have 26 points
+2019-02-27 16:24:37,558 DEBUG: Jack: Bust!  Too bad. You lost $1.0.
+2019-02-27 16:24:37,563 DEBUG: Play again? (y/N)
+2019-02-27 16:26:12,636 INFO: Game starting
+2019-02-27 16:26:12,638 DEBUG: Welcome to Blackjack!
+2019-02-27 16:26:12,642 DEBUG: Please enter your name: 
+2019-02-27 16:26:14,111 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 16:26:15,253 DEBUG: Jack: Greetings!
+2019-02-27 16:26:15,256 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 16:26:16,937 DEBUG: Jack: Your hand: 6 of Clubs, K of Clubs
+2019-02-27 16:26:16,941 DEBUG: Jack: You have 16 points
+2019-02-27 16:26:16,944 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:26:18,096 DEBUG: Jack: You have 20 points
+2019-02-27 16:26:18,100 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:26:19,710 DEBUG: Jack: You have 25 points
+2019-02-27 16:26:19,714 DEBUG: Jack: Bust!  Too bad. You lost $5.0.
+2019-02-27 16:26:19,718 DEBUG: Play again? (y/N)
+2019-02-27 16:26:21,274 DEBUG: Jack: Greetings!
+2019-02-27 16:26:21,277 DEBUG: Jack: You have $5.0, what is your bet?
+2019-02-27 16:26:23,273 DEBUG: Jack: Your hand: 6 of Spades, 9 of Spades
+2019-02-27 16:26:23,279 DEBUG: Jack: You have 15 points
+2019-02-27 16:26:23,283 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:26:25,115 DEBUG: Jack: You have 19 points
+2019-02-27 16:26:25,120 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:26:26,011 DEBUG: Jack: You have 29 points
+2019-02-27 16:26:26,014 DEBUG: Jack: Bust!  Too bad. You lost $1.0.
+2019-02-27 16:26:26,018 DEBUG: Play again? (y/N)
+2019-02-27 16:27:37,553 INFO: Game starting
+2019-02-27 16:27:37,554 DEBUG: Welcome to Blackjack!
+2019-02-27 16:27:37,557 DEBUG: Please enter your name: 
+2019-02-27 16:27:39,060 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 16:27:40,153 DEBUG: Jack: Greetings!
+2019-02-27 16:27:40,157 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 16:27:42,953 DEBUG: Jack: Your hand: J of Spades, 5 of Diamonds
+2019-02-27 16:27:42,957 DEBUG: Jack: You have 15 points
+2019-02-27 16:27:42,960 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:27:44,936 DEBUG: Jack: You have 25 points
+2019-02-27 16:27:44,939 DEBUG: Jack: Bust!  Too bad. You lost $2.0.
+2019-02-27 16:27:44,942 DEBUG: Play again? (y/N)
+2019-02-27 16:28:28,562 INFO: Game starting
+2019-02-27 16:28:28,563 DEBUG: Welcome to Blackjack!
+2019-02-27 16:28:28,566 DEBUG: Please enter your name: 
+2019-02-27 16:28:29,755 DEBUG: jac: Are there more players to sign up? (y/N)
+2019-02-27 16:28:30,730 DEBUG: jac: Greetings!
+2019-02-27 16:28:30,733 DEBUG: jac: You have $10, what is your bet?
+2019-02-27 16:28:31,996 DEBUG: jac: Your hand: K of Hearts, 7 of Hearts
+2019-02-27 16:28:31,998 DEBUG: jac: You have 17 points
+2019-02-27 16:28:32,001 DEBUG: jac: Would you like to hit or stay? (h/S) 
+2019-02-27 16:28:33,377 DEBUG: jac: You have 25 points
+2019-02-27 16:28:33,380 DEBUG: jac: Bust!  Too bad. You lost $5.0.
+2019-02-27 16:28:33,382 DEBUG: Play again? (y/N)
+2019-02-27 16:29:36,354 INFO: Game starting
+2019-02-27 16:29:36,355 DEBUG: Welcome to Blackjack!
+2019-02-27 16:29:36,358 DEBUG: Please enter your name: 
+2019-02-27 16:29:37,813 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 16:29:39,045 DEBUG: Jack: Greetings!
+2019-02-27 16:29:39,048 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 16:29:40,276 DEBUG: Jack: You have 18 points
+2019-02-27 16:29:40,279 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:29:41,146 DEBUG: Jack: Your hand: A of Diamonds, 7 of Spades, 5 of Hearts
+2019-02-27 16:29:41,150 DEBUG: Jack: You have 13 points
+2019-02-27 16:29:41,153 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:30:00,161 DEBUG: Jack: Your hand: A of Diamonds, 7 of Spades, 5 of Hearts, 3 of Clubs
+2019-02-27 16:30:00,166 DEBUG: Jack: You have 16 points
+2019-02-27 16:30:00,169 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:30:02,028 DEBUG: Jack: Your hand: A of Diamonds, 7 of Spades, 5 of Hearts, 3 of Clubs, Q of Clubs
+2019-02-27 16:30:02,031 DEBUG: Jack: You have 26 points
+2019-02-27 16:30:02,034 DEBUG: Jack: Bust!  Too bad. You lost $2.0.
+2019-02-27 16:30:02,037 DEBUG: Play again? (y/N)
+2019-02-27 16:30:05,730 INFO: Game starting
+2019-02-27 16:30:05,732 DEBUG: Welcome to Blackjack!
+2019-02-27 16:30:05,735 DEBUG: Please enter your name: 
+2019-02-27 16:30:06,986 DEBUG: Jack: Are there more players to sign up? (y/N)
+2019-02-27 16:30:08,258 DEBUG: Jack: Greetings!
+2019-02-27 16:30:08,260 DEBUG: Jack: You have $10, what is your bet?
+2019-02-27 16:30:09,729 DEBUG: Jack: Your hand: 9 of Hearts, 3 of Diamonds
+2019-02-27 16:30:09,731 DEBUG: Jack: You have 12 points
+2019-02-27 16:30:09,734 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:30:10,784 DEBUG: Jack: Your hand: 9 of Hearts, 3 of Diamonds, 8 of Diamonds
+2019-02-27 16:30:10,787 DEBUG: Jack: You have 20 points
+2019-02-27 16:30:10,790 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:30:11,951 DEBUG: Jack: Your hand: 9 of Hearts, 3 of Diamonds, 8 of Diamonds, K of Diamonds
+2019-02-27 16:30:11,953 DEBUG: Jack: You have 30 points
+2019-02-27 16:30:11,956 DEBUG: Jack: Bust!  Too bad. You lost $2.0.
+2019-02-27 16:30:11,960 DEBUG: Play again? (y/N)
+2019-02-27 16:30:13,764 DEBUG: Jack: Greetings!
+2019-02-27 16:30:13,768 DEBUG: Jack: You have $8.0, what is your bet?
+2019-02-27 16:30:15,285 DEBUG: Jack: Your hand: J of Diamonds, 7 of Spades
+2019-02-27 16:30:15,287 DEBUG: Jack: You have 17 points
+2019-02-27 16:30:15,291 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:30:16,765 DEBUG: Jack: Your hand: J of Diamonds, 7 of Spades, 3 of Spades
+2019-02-27 16:30:16,767 DEBUG: Jack: You have 20 points
+2019-02-27 16:30:16,771 DEBUG: Jack: Would you like to hit or stay? (h/S) 
+2019-02-27 16:30:17,709 DEBUG: Jack: Your hand: J of Diamonds, 7 of Spades, 3 of Spades, Q of Clubs
+2019-02-27 16:30:17,711 DEBUG: Jack: You have 30 points
+2019-02-27 16:30:17,714 DEBUG: Jack: Bust!  Too bad. You lost $2.0.
+2019-02-27 16:30:17,717 DEBUG: Play again? (y/N)

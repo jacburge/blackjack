@@ -44,5 +44,12 @@ class TestPlayer(unittest.TestCase):
         self.assertIn(hidden_card, self.dealer.all_cards)
         self.assertEqual(2, len(self.dealer.all_cards))
 
+    def test_remove_all_cards_works(self):
+        cards = [Card('K', 'hearts'), Card('2', 'diamonds')]
+        for card in cards:
+            self.bob.add_card(card)
+        self.bob.remove_all_cards()
+        self.assertEqual([],self.bob.all_cards)
+
 if __name__ == '__main__':
     unittest.main()

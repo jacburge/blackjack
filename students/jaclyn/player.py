@@ -52,3 +52,8 @@ class Player():
         if self._facedown_card:
             cards.append(self._facedown_card)
         return cards
+
+    def remove_all_cards(self) -> list:
+        """ Remove all cards from player to start game over """
+        self._faceup_cards = []
+        self._facedown_card = None

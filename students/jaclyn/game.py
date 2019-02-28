@@ -138,6 +138,14 @@ def print_cards(player: Player) -> None:
     clean_cards = [str(card) for card in cards]
     return '{}: Your hand: {}'.format(player.name, clean_cards)
 
+def get_cards(player: Player) -> str:
+    """
+    Print out the player's current hand.
+    """
+    cards = [str(card) for card in player.all_cards]
+    cardlist = ', '.join(cards)
+    return 'Your hand: ' + cardlist
+
 def get_bet_amount(player: Player) -> float:
     say(player, f'You have ${player.wallet.balance}, what is your bet?')
     while True:
@@ -147,6 +155,7 @@ def get_bet_amount(player: Player) -> float:
             return bet_amount
         except ValueError:
             say(player, f'{bet_amount} is not a number, try again')
+
 
 def ask_player_position(deck: Deck, players: list) -> None:
     """
@@ -165,7 +174,7 @@ def ask_player_position(deck: Deck, players: list) -> None:
             answer = get_input()
             if answer.lower() in ['h', 'hit']:
                 deal_cards(deck, player, 1)
-                print_cards(player)
+                say(player, get_cards(player))
                 if get_score(player) >= 21:
                     break
             else:
@@ -174,10 +183,12 @@ def ask_player_position(deck: Deck, players: list) -> None:
         # TODO: this takes no account of the dealer's cards, add code
         # to check the dealer's hand
         if score == 21:
-            say(player, 'Blackjack!')
+            say(player, f'Blackjack! You won ${bet_amount}.')
+            player.wallet.add_money(float(bet_amount))
 
-        if score >= 21:
-            say(player, 'Bust!  Too bad.')
+        if score > 21:
+            say(player, f'Bust!  Too bad. You lost ${bet_amount}.')
+
 
 def play_game() -> None:
     """
@@ -192,10 +203,18 @@ def play_game() -> None:
     players: list = get_players()
     dealer: Player = Player('Dealer', is_dealer=True)
     dealer.wallet.add_money(1000)
-    deal_cards(deck, dealer, 2)
-    ask_player_position(deck, players)
+    while True:
+        deal_cards(deck, dealer, 2)
+        ask_player_position(deck, players)
+        say(None, 'Play again? (y/N)')
+        answer = get_input()
+        if answer.lower() not in ('y','yes'):
+            break
+        else:
+            for player in players:
+                player.remove_all_cards()
+
     # TODO: missing features at this point:
-    # * betting
     # * comparisons with the dealer's hand
 
 
