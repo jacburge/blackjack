@@ -147,6 +147,11 @@ def get_cards(player: Player) -> str:
     return 'Your hand: ' + cardlist
 
 def get_bet_amount(player: Player) -> float:
+    """
+    Ask player to bet and save the amount.
+    :param player:
+    :return:
+    """
     say(player, f'You have ${player.wallet.balance}, what is your bet?')
     while True:
         bet_amount = get_input()
@@ -156,8 +161,7 @@ def get_bet_amount(player: Player) -> float:
         except ValueError:
             say(player, f'{bet_amount} is not a number, try again')
 
-
-def ask_player_position(deck: Deck, players: list) -> None:
+def ask_player_position(deck: Deck, players: list, dealer: Player) -> None:
     """
     Go through the list of players, and for each of them, ask if they
     want to hit or stay.  Return when all players are finished.
@@ -180,15 +184,20 @@ def ask_player_position(deck: Deck, players: list) -> None:
             else:
                 break
         score = report_score(player)
+        dealer_score = get_score(dealer)
         # TODO: this takes no account of the dealer's cards, add code
         # to check the dealer's hand
-        if score == 21:
-            say(player, f'Blackjack! You won ${bet_amount}.')
-            player.wallet.add_money(float(bet_amount))
-
-        if score > 21:
+        say(player, f'The dealer had {dealer_score} points.')
+        if score > 21 or (score < 21 and dealer_score <= 21 and dealer_score > score):
             say(player, f'Bust!  Too bad. You lost ${bet_amount}.')
-
+            dealer.wallet.add_money(float(bet_amount))
+        elif score == 21 or (score < 21 and score > dealer_score) or dealer_score > 21:
+            say(player, f'Blackjack! You won ${bet_amount}.')
+            player.wallet.add_money(float(bet_amount)*2)
+            dealer.wallet.remove_money(float(bet_amount))
+        elif score == dealer_score:
+            say(player, "It's a draw!")
+            player.wallet.add_money(float(bet_amount))
 
 def play_game() -> None:
     """
@@ -205,17 +214,18 @@ def play_game() -> None:
     dealer.wallet.add_money(1000)
     while True:
         deal_cards(deck, dealer, 2)
-        ask_player_position(deck, players)
+        ask_player_position(deck, players, dealer)
         say(None, 'Play again? (y/N)')
         answer = get_input()
-        if answer.lower() not in ('y','yes'):
+        if answer.lower() not in ('y', 'yes'):
             break
         else:
+            dealer.remove_all_cards()
             for player in players:
                 player.remove_all_cards()
 
     # TODO: missing features at this point:
-    # * comparisons with the dealer's hand
+    # * what to do if deck becomes empty
 
 
 if __name__ == '__main__':
